@@ -1,0 +1,4172 @@
+{
+  "upstreamCommit": "71eb7780bcf5d6b1dfdcd39a8a8265547d040760",
+  "releaseReady": false,
+  "models": [
+    "project",
+    "menuTree",
+    "globalConfig",
+    "planner",
+    "boards",
+    "note",
+    "issueProvider",
+    "metric",
+    "task",
+    "tag",
+    "simpleCounter",
+    "section",
+    "taskRepeatCfg",
+    "reminders",
+    "timeTracking",
+    "pluginUserData",
+    "pluginMetadata",
+    "archiveYoung",
+    "archiveOld"
+  ],
+  "reducerFixtureCount": 318,
+  "queryFixtureCount": 10,
+  "operationFixtureCount": 228,
+  "commandFixtureCount": 257,
+  "taskDefaultsFixtureCount": 26,
+  "localEffectFixtureCount": 93,
+  "archiveDocumentFixtureCount": 54,
+  "archiveReplayFixtureCount": 54,
+  "verifiedCommandScenarios": [
+    "board_duplicate",
+    "counter_create",
+    "counter_decrease_today",
+    "counter_delete",
+    "counter_increase_today",
+    "counter_reorder",
+    "counter_set_date",
+    "counter_set_today",
+    "counter_update",
+    "counters_delete",
+    "metric_create",
+    "metric_delete",
+    "metric_log_focus",
+    "metric_update",
+    "metric_upsert",
+    "plugin_delete_metadata",
+    "plugin_set_enabled",
+    "section_add_task",
+    "section_create",
+    "section_delete",
+    "section_remove_task",
+    "section_reorder",
+    "section_update",
+    "task_add_child",
+    "task_child_to_bottom",
+    "task_child_to_top",
+    "task_complete",
+    "task_create",
+    "task_delete",
+    "task_move_down",
+    "task_move_in_context",
+    "task_move_project",
+    "task_move_to_bottom",
+    "task_move_to_top",
+    "task_move_up",
+    "task_nest",
+    "task_plan_today",
+    "task_promote",
+    "task_reopen",
+    "task_reschedule",
+    "task_restore",
+    "task_schedule",
+    "task_send_to_backlog",
+    "task_send_to_regular",
+    "task_set_subtasks_display",
+    "task_set_tags",
+    "task_update",
+    "tasks_delete",
+    "time_delete_day",
+    "time_edit",
+    "time_remove",
+    "time_set_day"
+  ],
+  "testEvidence": [
+    {
+      "file": "client-oracle.json",
+      "sha256": "b2a8ed0a840e5e9e9a1bdaa7ebace4e8216fc8b43654fb983a34d57e35ae2016",
+      "test": "TestOriginalClientFixtures",
+      "caseCount": 95,
+      "result": "pass",
+      "dimensions": [
+        "state"
+      ]
+    },
+    {
+      "file": "query-oracle.json",
+      "sha256": "fc28f5755e1b1aba973c277b01241791020c87ad4e9e71e170c0d6a3886af004",
+      "test": "TestTodayClientSelectors",
+      "caseCount": 2,
+      "result": "pass",
+      "dimensions": [
+        "query"
+      ]
+    },
+    {
+      "file": "operation-oracle.json",
+      "sha256": "43cc0010308bc677ae301796f772af2d48f9f1138323371f74ba27fb679c3c57",
+      "test": "TestOriginalCapturePayload",
+      "caseCount": 5,
+      "result": "pass",
+      "dimensions": [
+        "operation"
+      ]
+    },
+    {
+      "file": "command-oracle.json",
+      "sha256": "44ef4cdd5dfe21be2f743a8c18cd5e1ee94f2607e1316872afbb691661a1d01c",
+      "test": "TestOriginalServiceCommandFixtures",
+      "caseCount": 9,
+      "result": "pass",
+      "dimensions": [
+        "command"
+      ]
+    },
+    {
+      "file": "models-oracle.json",
+      "sha256": "a1526e5f9fb4ecde3d8b3c3527db44ec72dea9e92d5dcb8111d1633144e06faf",
+      "test": "TestOriginalModelTransitionsAndOperations",
+      "caseCount": 43,
+      "result": "pass",
+      "dimensions": [
+        "state",
+        "operation"
+      ]
+    },
+    {
+      "file": "model-command-oracle.json",
+      "sha256": "68763ce7a9dcd7bbf0ad8ce6ca91114efccb9f9d009e4eed63ab5d2e15d83bbe",
+      "test": "TestOriginalModelCommands",
+      "caseCount": 17,
+      "result": "pass",
+      "dimensions": [
+        "command"
+      ]
+    },
+    {
+      "file": "task-tree-oracle.json",
+      "sha256": "375a73e8e80f8ae3d0123e1ccfcd5dae94bd3a1e5439c26f09c9145cd973eda9",
+      "test": "TestOriginalTaskTreeAndTimeTransitions",
+      "caseCount": 48,
+      "result": "pass",
+      "dimensions": [
+        "state",
+        "operation"
+      ]
+    },
+    {
+      "file": "task-update-oracle.json",
+      "sha256": "ad1aaf05d25c5c2e9afc44ae21fdde6af415755ab9af1c627b6e7403e2a8f474",
+      "test": "TestOriginalFullTaskUpdates",
+      "caseCount": 34,
+      "result": "pass",
+      "dimensions": [
+        "state",
+        "operation"
+      ]
+    },
+    {
+      "file": "task-command-oracle.json",
+      "sha256": "8b28c0ef259debf679e2f3c3a1c5b45c88292a256dcb6128695fc43bb831502a",
+      "test": "TestOriginalTaskTreeCommands",
+      "caseCount": 13,
+      "result": "pass",
+      "dimensions": [
+        "command",
+        "effects"
+      ]
+    },
+    {
+      "file": "counter-oracle.json",
+      "sha256": "38ab10380a27630fa45a2a2b048f1035dacabc2b56e2de82e2a89b8cc7b3c79a",
+      "test": "TestOriginalCounterTransitions",
+      "caseCount": 18,
+      "result": "pass",
+      "dimensions": [
+        "state",
+        "operation"
+      ]
+    },
+    {
+      "file": "counter-command-oracle.json",
+      "sha256": "26975a819bfebfdde7503b15273190361057d49758bc65d12c50e821b504aab3",
+      "test": "TestOriginalCounterCommands",
+      "caseCount": 10,
+      "result": "pass",
+      "dimensions": [
+        "command"
+      ]
+    },
+    {
+      "file": "work-context-oracle.json",
+      "sha256": "46e68b4fad82909d3a88ecb91580d310cc65039b1fa8cf9a77e96a647653d3a0",
+      "test": "TestOriginalWorkContextTransitions",
+      "caseCount": 40,
+      "result": "pass",
+      "dimensions": [
+        "state",
+        "operation"
+      ]
+    },
+    {
+      "file": "work-context-command-oracle.json",
+      "sha256": "e7960c218ed70873a2134ff978ec4823dbe73e4c88193ee773b482d0583f81fe",
+      "test": "TestOriginalWorkContextCommands",
+      "caseCount": 56,
+      "result": "pass",
+      "dimensions": [
+        "command"
+      ]
+    },
+    {
+      "file": "work-context-query-oracle.json",
+      "sha256": "fbf0569640f5f381b6d583137b1b78ece300f44ce925be182defebcc56c923b3",
+      "test": "TestOriginalWorkContextSelectors",
+      "caseCount": 8,
+      "result": "pass",
+      "dimensions": [
+        "query"
+      ]
+    },
+    {
+      "file": "task-defaults-oracle.json",
+      "sha256": "137c3e2aa32e94ff269302dc0a3864f6be20973205b6e2eefd77e32308bf8f3f",
+      "test": "TestOriginalTaskDefaultsAndValidation",
+      "caseCount": 26,
+      "result": "pass",
+      "dimensions": [
+        "defaults"
+      ]
+    },
+    {
+      "file": "local-task-workflow-oracle.json",
+      "sha256": "a591714e047289a16eb4b95dcea04e893c9ca632e0b86fa6676ec25e22630561",
+      "test": "TestOriginalLocalTaskWorkflows",
+      "caseCount": 36,
+      "result": "pass",
+      "dimensions": [
+        "command",
+        "effects"
+      ]
+    },
+    {
+      "file": "backlog-oracle.json",
+      "sha256": "477b9efbf2ac8ab62ba4ed616ed296b50762e3ec8b46c82adc0a11f692d7c6fd",
+      "test": "TestOriginalBacklogTransitions",
+      "caseCount": 24,
+      "result": "pass",
+      "dimensions": [
+        "state",
+        "operation"
+      ]
+    },
+    {
+      "file": "backlog-command-oracle.json",
+      "sha256": "526dfeb780d59b35f02c32e016dd3b7d527b78a797b2638130f2226b4d101e77",
+      "test": "TestOriginalBacklogCommands",
+      "caseCount": 44,
+      "result": "pass",
+      "dimensions": [
+        "command",
+        "effects"
+      ]
+    },
+    {
+      "file": "time-dialog-command-oracle.json",
+      "sha256": "e981a06bf4b9c5dae89061cc1d49cfca3887d4ed57b59c7cebebeef4adbbaf59",
+      "test": "TestOriginalTimeDialogCommands",
+      "caseCount": 18,
+      "result": "pass",
+      "dimensions": [
+        "command"
+      ]
+    },
+    {
+      "file": "time-replay-oracle.json",
+      "sha256": "70406aff717acf4765168c61f4dec19c0ec08b1e45eda5de693269e214b321ec",
+      "test": "TestOriginalTimeReplayTransitions",
+      "caseCount": 16,
+      "result": "pass",
+      "dimensions": [
+        "state",
+        "operation"
+      ]
+    },
+    {
+      "file": "archive-restore-command-oracle.json",
+      "sha256": "98b178d8fd9147afdeacedc49b68a02194cc90abf620c8a99e9f52bbfedc0151",
+      "test": "TestOriginalArchiveRestoreCommands",
+      "caseCount": 31,
+      "result": "pass",
+      "dimensions": [
+        "command",
+        "archive"
+      ]
+    },
+    {
+      "file": "archive-restore-command-oracle.json",
+      "sha256": "98b178d8fd9147afdeacedc49b68a02194cc90abf620c8a99e9f52bbfedc0151",
+      "test": "TestOriginalArchiveRestoreReplay",
+      "caseCount": 31,
+      "result": "pass",
+      "dimensions": [
+        "replay"
+      ]
+    },
+    {
+      "file": "history-time-command-oracle.json",
+      "sha256": "c4023bdbb73599cd033b5d6f6a1cff741e44e20602aff143fb5c3c7a01c680c4",
+      "test": "TestOriginalHistoryTimeCommands",
+      "caseCount": 23,
+      "result": "pass",
+      "dimensions": [
+        "command",
+        "archive"
+      ]
+    },
+    {
+      "file": "history-time-command-oracle.json",
+      "sha256": "c4023bdbb73599cd033b5d6f6a1cff741e44e20602aff143fb5c3c7a01c680c4",
+      "test": "TestOriginalHistoryTimeReplay",
+      "caseCount": 23,
+      "result": "pass",
+      "dimensions": [
+        "replay"
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "code": "AC",
+      "name": "ARCHIVE_COMPRESS",
+      "sources": [
+        {
+          "path": "src/app/features/archive/store/archive.actions.ts",
+          "line": 51
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "AF",
+      "name": "ARCHIVE_FLUSH_YOUNG_TO_OLD",
+      "sources": [
+        {
+          "path": "src/app/features/archive/store/archive.actions.ts",
+          "line": 30
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "AR",
+      "name": "ARCHIVE_REMOTE_DATA_APPLIED",
+      "sources": [
+        {
+          "path": "src/app/features/archive/store/archive.actions.ts",
+          "line": 13
+        }
+      ],
+      "captureClassification": "local-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "BA",
+      "name": "BOARDS_ADD",
+      "sources": [
+        {
+          "path": "src/app/features/boards/store/boards.actions.ts",
+          "line": 7
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/board-add-sanitize",
+        "TestOriginalModelTransitionsAndOperations/board-duplicate-append",
+        "TestOriginalModelTransitionsAndOperations/board-add-second"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/board-add-sanitize",
+        "TestOriginalModelTransitionsAndOperations/board-duplicate-append",
+        "TestOriginalModelTransitionsAndOperations/board-add-second"
+      ],
+      "commandFixtures": [
+        "TestOriginalModelCommands/board-duplicate"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "BD",
+      "name": "BOARDS_REMOVE",
+      "sources": [
+        {
+          "path": "src/app/features/boards/store/boards.actions.ts",
+          "line": 33
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/board-delete"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/board-delete"
+      ],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "BU",
+      "name": "BOARDS_UPDATE",
+      "sources": [
+        {
+          "path": "src/app/features/boards/store/boards.actions.ts",
+          "line": 20
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/board-update"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/board-update"
+      ],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "BP",
+      "name": "BOARDS_UPDATE_PANEL_CFG",
+      "sources": [
+        {
+          "path": "src/app/features/boards/store/boards.actions.ts",
+          "line": 46
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/board-legacy-panel-noop"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/board-legacy-panel-noop"
+      ],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "BT",
+      "name": "BOARDS_UPDATE_PANEL_TASK_IDS",
+      "sources": [
+        {
+          "path": "src/app/features/boards/store/boards.actions.ts",
+          "line": 59
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/board-panel-order"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/board-panel-order"
+      ],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "BS",
+      "name": "BOARDS_SORT",
+      "sources": [
+        {
+          "path": "src/app/features/boards/store/boards.actions.ts",
+          "line": 72
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/board-stale-sort"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/board-stale-sort"
+      ],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "CU",
+      "name": "GLOBAL_CONFIG_UPDATE_SECTION",
+      "sources": [
+        {
+          "path": "src/app/features/config/store/global-config.actions.ts",
+          "line": 7
+        },
+        {
+          "path": "src/app/op-log/sync/operation-log-upload.service.ts",
+          "line": 814
+        },
+        {
+          "path": "src/app/op-log/sync/sync-import-conflict-gate.service.ts",
+          "line": 22
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "EA",
+      "name": "METRIC_ADD",
+      "sources": [
+        {
+          "path": "src/app/features/metric/store/metric.actions.ts",
+          "line": 8
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/metric-add",
+        "TestOriginalModelTransitionsAndOperations/metric-duplicate"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/metric-add",
+        "TestOriginalModelTransitionsAndOperations/metric-duplicate"
+      ],
+      "commandFixtures": [
+        "TestOriginalModelCommands/metric-create-today"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "ED",
+      "name": "METRIC_DELETE",
+      "sources": [
+        {
+          "path": "src/app/features/metric/store/metric.actions.ts",
+          "line": 11
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/metric-delete"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/metric-delete"
+      ],
+      "commandFixtures": [
+        "TestOriginalModelCommands/metric-delete"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "EU",
+      "name": "METRIC_UPDATE",
+      "sources": [
+        {
+          "path": "src/app/features/metric/store/metric.actions.ts",
+          "line": 9
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/metric-update",
+        "TestOriginalModelTransitionsAndOperations/metric-update-missing-defaults"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/metric-update",
+        "TestOriginalModelTransitionsAndOperations/metric-update-missing-defaults"
+      ],
+      "commandFixtures": [
+        "TestOriginalModelCommands/metric-update"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "EX",
+      "name": "METRIC_UPSERT",
+      "sources": [
+        {
+          "path": "src/app/features/metric/store/metric.actions.ts",
+          "line": 10
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/metric-upsert-merges"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/metric-upsert-merges"
+      ],
+      "commandFixtures": [
+        "TestOriginalModelCommands/metric-upsert"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "EL",
+      "name": "METRIC_LOG_FOCUS_SESSION",
+      "sources": [
+        {
+          "path": "src/app/features/metric/store/metric.actions.ts",
+          "line": 12
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/metric-focus-append",
+        "TestOriginalModelTransitionsAndOperations/metric-focus-zero-noop",
+        "TestOriginalModelTransitionsAndOperations/metric-focus-new"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/metric-focus-append",
+        "TestOriginalModelTransitionsAndOperations/metric-focus-zero-noop",
+        "TestOriginalModelTransitionsAndOperations/metric-focus-new"
+      ],
+      "commandFixtures": [
+        "TestOriginalModelCommands/metric-focus"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "GA",
+      "name": "TAG_ADD",
+      "sources": [
+        {
+          "path": "src/app/features/tag/store/tag.actions.ts",
+          "line": 8
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/tag-create-menu",
+        "TestOriginalClientFixtures/tag-create-duplicate"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "GU",
+      "name": "TAG_UPDATE",
+      "sources": [
+        {
+          "path": "src/app/features/tag/store/tag.actions.ts",
+          "line": 19
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/tag-update-filter-missing"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "GD",
+      "name": "TAG_DELETE",
+      "sources": [
+        {
+          "path": "src/app/features/tag/store/tag.actions.ts",
+          "line": 32
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "GDM",
+      "name": "TAG_DELETE_MULTIPLE",
+      "sources": [
+        {
+          "path": "src/app/features/tag/store/tag.actions.ts",
+          "line": 48
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 418
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "GO",
+      "name": "TAG_UPDATE_ORDER",
+      "sources": [
+        {
+          "path": "src/app/features/tag/store/tag.actions.ts",
+          "line": 62
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/tag-order"
+      ],
+      "wireFixtures": [
+        "TestOriginalCapturePayload/bulk-order"
+      ],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "GC",
+      "name": "TAG_UPDATE_ADVANCED_CONFIG",
+      "sources": [
+        {
+          "path": "src/app/features/tag/store/tag.actions.ts",
+          "line": 76
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/tag-advanced-merge"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "HA",
+      "name": "TASK_SHARED_ADD",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 96
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/task-create",
+        "TestOriginalClientFixtures/task-create-today-bottom",
+        "TestOriginalClientFixtures/duplicate-task-create-retains-order",
+        "TestOriginalClientFixtures/partial-task-replay-defaults"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [
+        "TestOriginalLocalTaskWorkflows/create-PROJECT-p-default",
+        "TestOriginalLocalTaskWorkflows/create-PROJECT-p-explicit-estimate",
+        "TestOriginalLocalTaskWorkflows/create-PROJECT-p-future-day",
+        "TestOriginalLocalTaskWorkflows/create-TAG-own-default",
+        "TestOriginalLocalTaskWorkflows/create-TAG-own-explicit-estimate",
+        "TestOriginalLocalTaskWorkflows/create-TAG-own-future-day",
+        "TestOriginalLocalTaskWorkflows/create-TAG-TODAY-default",
+        "TestOriginalLocalTaskWorkflows/create-TAG-TODAY-explicit-estimate",
+        "TestOriginalLocalTaskWorkflows/create-TAG-TODAY-future-day",
+        "TestOriginalLocalTaskWorkflows/create-bottom-backlog",
+        "TestOriginalLocalTaskWorkflows/create-deadline-today",
+        "TestOriginalLocalTaskWorkflows/create-deadline-keeps-future-schedule",
+        "TestOriginalLocalTaskWorkflows/create-preserves-fractional-native-numbers"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "HU",
+      "name": "TASK_SHARED_UPDATE",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 384
+        },
+        {
+          "path": "src/app/op-log/capture/operation-log.effects.ts",
+          "line": 584
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 269
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/task-rename",
+        "TestOriginalClientFixtures/time-delta-parent",
+        "TestOriginalClientFixtures/time-zero-parent",
+        "TestOriginalClientFixtures/estimate-parent",
+        "TestOriginalClientFixtures/complete-child",
+        "TestOriginalClientFixtures/reopen-child",
+        "TestOriginalClientFixtures/complete-today",
+        "TestOriginalClientFixtures/complete-parent",
+        "TestOriginalClientFixtures/task-tags-update-bidirectional",
+        "TestOriginalClientFixtures/task-tags-clear",
+        "TestOriginalClientFixtures/task-tags-missing-and-virtual-replay",
+        "TestOriginalClientFixtures/task-tags-complete-clears-in-progress",
+        "TestOriginalFullTaskUpdates/task-update-native-fields",
+        "TestOriginalFullTaskUpdates/priority-null",
+        "TestOriginalFullTaskUpdates/priority-high",
+        "TestOriginalFullTaskUpdates/priority-medium",
+        "TestOriginalFullTaskUpdates/priority-low",
+        "TestOriginalFullTaskUpdates/priority-1",
+        "TestOriginalFullTaskUpdates/priority-2",
+        "TestOriginalFullTaskUpdates/update-project-cascades-children",
+        "TestOriginalFullTaskUpdates/update-project-explicit-footprint",
+        "TestOriginalFullTaskUpdates/same-project-keeps-order-cleans-duplicates",
+        "TestOriginalFullTaskUpdates/same-project-keeps-backlog",
+        "TestOriginalFullTaskUpdates/move-no-project",
+        "TestOriginalFullTaskUpdates/invalid-project-null",
+        "TestOriginalFullTaskUpdates/invalid-project-123",
+        "TestOriginalFullTaskUpdates/invalid-project-missing",
+        "TestOriginalFullTaskUpdates/child-rejects-other-project",
+        "TestOriginalFullTaskUpdates/child-valid-project",
+        "TestOriginalFullTaskUpdates/plan-today-to-future",
+        "TestOriginalFullTaskUpdates/plan-future-to-today",
+        "TestOriginalFullTaskUpdates/clear-day-with-null",
+        "TestOriginalFullTaskUpdates/due-time-update-preserves-day",
+        "TestOriginalFullTaskUpdates/complete-no-invented-plan",
+        "TestOriginalFullTaskUpdates/completion-captured-timestamp",
+        "TestOriginalFullTaskUpdates/completion-does-not-overwrite-future",
+        "TestOriginalFullTaskUpdates/completion-explicit-other-day",
+        "TestOriginalFullTaskUpdates/completion-removes-progress",
+        "TestOriginalFullTaskUpdates/reopen-clears-done-timestamp",
+        "TestOriginalFullTaskUpdates/time-days-delta-with-extra-parent-time",
+        "TestOriginalFullTaskUpdates/estimate-recalculates-parent",
+        "TestOriginalFullTaskUpdates/estimate-and-done-recalculates-parent",
+        "TestOriginalFullTaskUpdates/update-missing-task-noop"
+      ],
+      "wireFixtures": [
+        "TestOriginalCapturePayload/manual-time",
+        "TestOriginalFullTaskUpdates/task-update-native-fields",
+        "TestOriginalFullTaskUpdates/priority-null",
+        "TestOriginalFullTaskUpdates/priority-high",
+        "TestOriginalFullTaskUpdates/priority-medium",
+        "TestOriginalFullTaskUpdates/priority-low",
+        "TestOriginalFullTaskUpdates/priority-1",
+        "TestOriginalFullTaskUpdates/priority-2",
+        "TestOriginalFullTaskUpdates/update-project-cascades-children",
+        "TestOriginalFullTaskUpdates/update-project-explicit-footprint",
+        "TestOriginalFullTaskUpdates/same-project-keeps-order-cleans-duplicates",
+        "TestOriginalFullTaskUpdates/same-project-keeps-backlog",
+        "TestOriginalFullTaskUpdates/move-no-project",
+        "TestOriginalFullTaskUpdates/invalid-project-null",
+        "TestOriginalFullTaskUpdates/invalid-project-123",
+        "TestOriginalFullTaskUpdates/invalid-project-missing",
+        "TestOriginalFullTaskUpdates/child-rejects-other-project",
+        "TestOriginalFullTaskUpdates/child-valid-project",
+        "TestOriginalFullTaskUpdates/plan-today-to-future",
+        "TestOriginalFullTaskUpdates/plan-future-to-today",
+        "TestOriginalFullTaskUpdates/clear-day-with-null",
+        "TestOriginalFullTaskUpdates/due-time-update-preserves-day",
+        "TestOriginalFullTaskUpdates/complete-no-invented-plan",
+        "TestOriginalFullTaskUpdates/completion-captured-timestamp",
+        "TestOriginalFullTaskUpdates/completion-does-not-overwrite-future",
+        "TestOriginalFullTaskUpdates/completion-explicit-other-day",
+        "TestOriginalFullTaskUpdates/completion-removes-progress",
+        "TestOriginalFullTaskUpdates/reopen-clears-done-timestamp",
+        "TestOriginalFullTaskUpdates/time-days-delta-with-extra-parent-time",
+        "TestOriginalFullTaskUpdates/estimate-recalculates-parent",
+        "TestOriginalFullTaskUpdates/estimate-and-done-recalculates-parent",
+        "TestOriginalFullTaskUpdates/update-missing-task-noop"
+      ],
+      "commandFixtures": [
+        "TestOriginalServiceCommandFixtures/service-update-tags-deduplicate",
+        "TestOriginalTaskTreeCommands/move-root-through-update",
+        "TestOriginalTaskTreeCommands/update-priority-and-notes",
+        "TestOriginalTaskTreeCommands/update-day",
+        "TestOriginalTaskTreeCommands/update-time-days",
+        "TestOriginalTaskTreeCommands/promote-today",
+        "TestOriginalTaskTreeCommands/promote-project",
+        "TestOriginalLocalTaskWorkflows/create-PROJECT-p-default",
+        "TestOriginalLocalTaskWorkflows/create-PROJECT-p-future-day",
+        "TestOriginalLocalTaskWorkflows/create-TAG-own-default",
+        "TestOriginalLocalTaskWorkflows/create-TAG-own-future-day",
+        "TestOriginalLocalTaskWorkflows/create-TAG-TODAY-default",
+        "TestOriginalLocalTaskWorkflows/create-TAG-TODAY-future-day",
+        "TestOriginalLocalTaskWorkflows/create-bottom-backlog",
+        "TestOriginalLocalTaskWorkflows/create-deadline-today",
+        "TestOriginalLocalTaskWorkflows/create-deadline-keeps-future-schedule",
+        "TestOriginalLocalTaskWorkflows/child-PROJECT-p-default",
+        "TestOriginalLocalTaskWorkflows/child-PROJECT-p-explicit-day",
+        "TestOriginalLocalTaskWorkflows/child-TAG-own-default",
+        "TestOriginalLocalTaskWorkflows/child-TAG-own-explicit-day",
+        "TestOriginalLocalTaskWorkflows/child-TAG-TODAY-default",
+        "TestOriginalLocalTaskWorkflows/child-TAG-TODAY-explicit-day",
+        "TestOriginalLocalTaskWorkflows/child-inherits-first-parent-time",
+        "TestOriginalLocalTaskWorkflows/complete-last-child",
+        "TestOriginalLocalTaskWorkflows/complete-no-parent-followup",
+        "TestOriginalLocalTaskWorkflows/complete-disabled-parent-followup",
+        "TestOriginalLocalTaskWorkflows/update-completion-parent-effect",
+        "TestOriginalLocalTaskWorkflows/reopen",
+        "TestOriginalLocalTaskWorkflows/nest-keeps-tag-followup",
+        "TestOriginalLocalTaskWorkflows/nest-already-under-parent-reasserts",
+        "TestOriginalLocalTaskWorkflows/promote-different-tag-followup",
+        "TestOriginalBacklogCommands/drag-PROJECT-p-UNDONE-DONE-first",
+        "TestOriginalBacklogCommands/drag-PROJECT-p-UNDONE-DONE-after",
+        "TestOriginalBacklogCommands/drag-PROJECT-p-UNDONE-DONE-missing",
+        "TestOriginalBacklogCommands/drag-PROJECT-p-DONE-UNDONE-first",
+        "TestOriginalBacklogCommands/drag-PROJECT-p-DONE-UNDONE-after",
+        "TestOriginalBacklogCommands/drag-PROJECT-p-DONE-UNDONE-missing",
+        "TestOriginalBacklogCommands/drag-TAG-own-UNDONE-DONE-first",
+        "TestOriginalBacklogCommands/drag-TAG-own-UNDONE-DONE-after",
+        "TestOriginalBacklogCommands/drag-TAG-own-UNDONE-DONE-missing",
+        "TestOriginalBacklogCommands/drag-TAG-own-DONE-UNDONE-first",
+        "TestOriginalBacklogCommands/drag-TAG-own-DONE-UNDONE-after",
+        "TestOriginalBacklogCommands/drag-TAG-own-DONE-UNDONE-missing",
+        "TestOriginalBacklogCommands/drag-TAG-TODAY-UNDONE-DONE-first",
+        "TestOriginalBacklogCommands/drag-TAG-TODAY-UNDONE-DONE-after",
+        "TestOriginalBacklogCommands/drag-TAG-TODAY-UNDONE-DONE-missing",
+        "TestOriginalBacklogCommands/drag-TAG-TODAY-DONE-UNDONE-first",
+        "TestOriginalBacklogCommands/drag-TAG-TODAY-DONE-UNDONE-after",
+        "TestOriginalBacklogCommands/drag-TAG-TODAY-DONE-UNDONE-missing",
+        "TestOriginalBacklogCommands/drag-BACKLOG-UNDONE",
+        "TestOriginalBacklogCommands/drag-BACKLOG-DONE",
+        "TestOriginalTimeDialogCommands/edit-child-fractional",
+        "TestOriginalTimeDialogCommands/edit-child-empty-days",
+        "TestOriginalTimeDialogCommands/edit-child-zero-day",
+        "TestOriginalTimeDialogCommands/delete-child-day",
+        "TestOriginalTimeDialogCommands/delete-child-missing-day",
+        "TestOriginalTimeDialogCommands/edit-top-fractional",
+        "TestOriginalTimeDialogCommands/edit-top-empty-days",
+        "TestOriginalTimeDialogCommands/edit-top-zero-day",
+        "TestOriginalTimeDialogCommands/delete-top-day",
+        "TestOriginalTimeDialogCommands/delete-top-missing-day",
+        "TestOriginalTimeDialogCommands/edit-parent-fractional",
+        "TestOriginalTimeDialogCommands/edit-parent-empty-days",
+        "TestOriginalTimeDialogCommands/edit-parent-zero-day",
+        "TestOriginalTimeDialogCommands/delete-parent-day",
+        "TestOriginalTimeDialogCommands/delete-parent-missing-day",
+        "TestOriginalTimeDialogCommands/edit-native-number-type-no-invented-range",
+        "TestOriginalTimeDialogCommands/edit-retains-unknown-fields",
+        "TestOriginalTimeDialogCommands/delete-preserves-other-day-fraction",
+        "TestOriginalHistoryTimeCommands/active-leaf-0",
+        "TestOriginalHistoryTimeCommands/active-leaf-11.25",
+        "TestOriginalHistoryTimeCommands/active-leaf--0.5",
+        "TestOriginalHistoryTimeCommands/active-parent-0",
+        "TestOriginalHistoryTimeCommands/active-parent-11.25",
+        "TestOriginalHistoryTimeCommands/active-parent--0.5",
+        "TestOriginalHistoryTimeCommands/young-leaf-0",
+        "TestOriginalHistoryTimeCommands/young-leaf-11.25",
+        "TestOriginalHistoryTimeCommands/young-leaf--0.5",
+        "TestOriginalHistoryTimeCommands/young-parent-0",
+        "TestOriginalHistoryTimeCommands/young-parent-11.25",
+        "TestOriginalHistoryTimeCommands/young-parent--0.5",
+        "TestOriginalHistoryTimeCommands/old-leaf-0",
+        "TestOriginalHistoryTimeCommands/old-leaf-11.25",
+        "TestOriginalHistoryTimeCommands/old-leaf--0.5",
+        "TestOriginalHistoryTimeCommands/old-parent-0",
+        "TestOriginalHistoryTimeCommands/old-parent-11.25",
+        "TestOriginalHistoryTimeCommands/old-parent--0.5",
+        "TestOriginalHistoryTimeCommands/young-copy-wins-old-copy",
+        "TestOriginalHistoryTimeCommands/active-copy-wins-local-archive-copy",
+        "TestOriginalHistoryTimeCommands/new-day-keeps-other-rows",
+        "TestOriginalHistoryTimeCommands/existing-unusual-date-key",
+        "TestOriginalHistoryTimeCommands/archive-loader-normalizes-missing-days"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "HD",
+      "name": "TASK_SHARED_DELETE",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 150
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/delete-child-recalculates-parent",
+        "TestOriginalClientFixtures/delete-last-child-keeps-parent-timeSpent",
+        "TestOriginalClientFixtures/delete-parent-cleans-all-tag-references",
+        "TestOriginalClientFixtures/delete-calendar-captured-dismissals",
+        "TestOriginalClientFixtures/delete-orphan-child-entity-and-section",
+        "TestOriginalClientFixtures/delete-payload-different-current-children"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [
+        "TestOriginalServiceCommandFixtures/service-delete-child",
+        "TestOriginalServiceCommandFixtures/service-delete-parent-calendar"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "HDM",
+      "name": "TASK_SHARED_DELETE_MULTIPLE",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 163
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 417
+        },
+        {
+          "path": "src/app/op-log/sync/operation-log-upload.service.ts",
+          "line": 783
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/bulk-delete-reversed-child-order",
+        "TestOriginalClientFixtures/bulk-delete-parent-and-child",
+        "TestOriginalClientFixtures/bulk-delete-calendar-state-fallback",
+        "TestOriginalClientFixtures/bulk-delete-empty-noop"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [
+        "TestOriginalServiceCommandFixtures/service-bulk-delete-calendar"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "HX",
+      "name": "TASK_SHARED_MOVE_TO_ARCHIVE",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 186
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 455
+        },
+        {
+          "path": "src/app/op-log/sync/superseded-operation-resolver.service.ts",
+          "line": 697
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "HR",
+      "name": "TASK_SHARED_RESTORE",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 199
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 2658
+        },
+        {
+          "path": "src/app/op-log/sync/superseded-operation-resolver.service.ts",
+          "line": 859
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [
+        "TestOriginalArchiveRestoreCommands/young-original",
+        "TestOriginalArchiveRestoreCommands/old-original",
+        "TestOriginalArchiveRestoreCommands/duplicate-young-precedence-original",
+        "TestOriginalArchiveRestoreCommands/split-children-original",
+        "TestOriginalArchiveRestoreCommands/stale-project-with-inbox-original",
+        "TestOriginalArchiveRestoreCommands/stale-project-no-inbox-original",
+        "TestOriginalArchiveRestoreCommands/preserve-archived-project-original",
+        "TestOriginalArchiveRestoreCommands/active-foreign-child-original",
+        "TestOriginalArchiveRestoreCommands/adopt-reverse-child-original",
+        "TestOriginalArchiveRestoreCommands/missing-declared-child-original",
+        "TestOriginalArchiveRestoreCommands/legacy-child-no-parent-original",
+        "TestOriginalArchiveRestoreCommands/already-active-original",
+        "TestOriginalArchiveRestoreCommands/young-today",
+        "TestOriginalArchiveRestoreCommands/old-today",
+        "TestOriginalArchiveRestoreCommands/duplicate-young-precedence-today",
+        "TestOriginalArchiveRestoreCommands/split-children-today",
+        "TestOriginalArchiveRestoreCommands/stale-project-with-inbox-today",
+        "TestOriginalArchiveRestoreCommands/stale-project-no-inbox-today",
+        "TestOriginalArchiveRestoreCommands/preserve-archived-project-today",
+        "TestOriginalArchiveRestoreCommands/active-foreign-child-today",
+        "TestOriginalArchiveRestoreCommands/adopt-reverse-child-today",
+        "TestOriginalArchiveRestoreCommands/missing-declared-child-today",
+        "TestOriginalArchiveRestoreCommands/legacy-child-no-parent-today",
+        "TestOriginalArchiveRestoreCommands/already-active-today",
+        "TestOriginalArchiveRestoreCommands/loader-normalizes-missing-day-map",
+        "TestOriginalArchiveRestoreCommands/restore-keeps-valid-repeat",
+        "TestOriginalArchiveRestoreCommands/restore-today-preserves-matching-time",
+        "TestOriginalArchiveRestoreCommands/restore-today-clears-other-day-time",
+        "TestOriginalArchiveRestoreCommands/restore-today-clears-invalid-time",
+        "TestOriginalArchiveRestoreCommands/restore-today-uses-logical-boundary",
+        "TestOriginalArchiveRestoreCommands/restore-missing-old-creates-native-empty-archive"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "HRD",
+      "name": "TASK_SHARED_RESTORE_DELETED",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 248
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "HCS",
+      "name": "TASK_SHARED_CONVERT_TO_SUB",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 136
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalTaskTreeAndTimeTransitions/convert-main-to-sub",
+        "TestOriginalTaskTreeAndTimeTransitions/convert-ineligible-repeatCfgId",
+        "TestOriginalTaskTreeAndTimeTransitions/convert-ineligible-issueId",
+        "TestOriginalTaskTreeAndTimeTransitions/convert-ineligible-issueProviderId",
+        "TestOriginalTaskTreeAndTimeTransitions/convert-ineligible-issueType",
+        "TestOriginalTaskTreeAndTimeTransitions/convert-ineligible-dueWithTime",
+        "TestOriginalTaskTreeAndTimeTransitions/convert-ineligible-reminderId",
+        "TestOriginalTaskTreeAndTimeTransitions/convert-ineligible-remindAt",
+        "TestOriginalTaskTreeAndTimeTransitions/convert-nested-target-noop",
+        "TestOriginalTaskTreeAndTimeTransitions/convert-parent-with-children-noop"
+      ],
+      "wireFixtures": [
+        "TestOriginalTaskTreeAndTimeTransitions/convert-main-to-sub",
+        "TestOriginalTaskTreeAndTimeTransitions/convert-ineligible-repeatCfgId",
+        "TestOriginalTaskTreeAndTimeTransitions/convert-ineligible-issueId",
+        "TestOriginalTaskTreeAndTimeTransitions/convert-ineligible-issueProviderId",
+        "TestOriginalTaskTreeAndTimeTransitions/convert-ineligible-issueType",
+        "TestOriginalTaskTreeAndTimeTransitions/convert-ineligible-dueWithTime",
+        "TestOriginalTaskTreeAndTimeTransitions/convert-ineligible-reminderId",
+        "TestOriginalTaskTreeAndTimeTransitions/convert-ineligible-remindAt",
+        "TestOriginalTaskTreeAndTimeTransitions/convert-nested-target-noop",
+        "TestOriginalTaskTreeAndTimeTransitions/convert-parent-with-children-noop"
+      ],
+      "commandFixtures": [
+        "TestOriginalLocalTaskWorkflows/nest-keeps-tag-followup",
+        "TestOriginalLocalTaskWorkflows/nest-no-tags-no-followup",
+        "TestOriginalLocalTaskWorkflows/nest-rejected-no-followup",
+        "TestOriginalLocalTaskWorkflows/nest-already-under-parent-reasserts"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "HC",
+      "name": "TASK_SHARED_CONVERT_TO_MAIN",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 117
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalTaskTreeAndTimeTransitions/promote-keeps-own-tags",
+        "TestOriginalTaskTreeAndTimeTransitions/promote-inherits-parent-tags",
+        "TestOriginalTaskTreeAndTimeTransitions/promote-done-bottom-clears-time",
+        "TestOriginalTaskTreeAndTimeTransitions/promote-reopens-with-anchor"
+      ],
+      "wireFixtures": [
+        "TestOriginalTaskTreeAndTimeTransitions/promote-keeps-own-tags",
+        "TestOriginalTaskTreeAndTimeTransitions/promote-inherits-parent-tags",
+        "TestOriginalTaskTreeAndTimeTransitions/promote-done-bottom-clears-time",
+        "TestOriginalTaskTreeAndTimeTransitions/promote-reopens-with-anchor"
+      ],
+      "commandFixtures": [
+        "TestOriginalTaskTreeCommands/promote-today",
+        "TestOriginalTaskTreeCommands/promote-project",
+        "TestOriginalLocalTaskWorkflows/promote-different-tag-followup",
+        "TestOriginalLocalTaskWorkflows/promote-identical-tags-no-followup",
+        "TestOriginalLocalTaskWorkflows/promote-inherited-tags-no-followup"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "HS",
+      "name": "TASK_SHARED_SCHEDULE_WITH_TIME",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 272
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/schedule-with-reminder-today",
+        "TestOriginalClientFixtures/schedule-exact-noop-preserves-dueDay",
+        "TestOriginalClientFixtures/schedule-cleans-planner-and-today-section"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [
+        "TestOriginalServiceCommandFixtures/service-schedule-backlog"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "HSR",
+      "name": "TASK_SHARED_RESCHEDULE_WITH_TIME",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 288
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/reschedule-future-backlog",
+        "TestOriginalClientFixtures/reschedule-already-backlog-keeps-position"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [
+        "TestOriginalServiceCommandFixtures/service-reschedule-no-reminder"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "HSX",
+      "name": "TASK_SHARED_UNSCHEDULE",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 304
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/unschedule-leave-today-does-not-add-order",
+        "TestOriginalClientFixtures/unschedule-clears-three-fields",
+        "TestOriginalClientFixtures/unschedule-missing-cleans-stale-order",
+        "TestOriginalClientFixtures/unschedule-cleans-today-section-with-children"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "HRX",
+      "name": "TASK_SHARED_DISMISS_REMINDER",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 319
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/dismiss-reminder-preserves-schedule"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "HUM",
+      "name": "TASK_SHARED_UPDATE_MULTIPLE",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 409
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 816
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "HMP",
+      "name": "TASK_SHARED_MOVE_TO_PROJECT",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 421
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 809
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/move-parent-project-with-children",
+        "TestOriginalClientFixtures/move-with-stale-payload-project",
+        "TestOriginalClientFixtures/move-same-project-keeps-section-moves-list-end",
+        "TestOriginalClientFixtures/move-legacy-missing-destination"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [
+        "TestOriginalServiceCommandFixtures/service-move-project"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "HPD",
+      "name": "TASK_SHARED_DELETE_PROJECT",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 434
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 192
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "HPT",
+      "name": "TASK_SHARED_PLAN_FOR_TODAY",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 450
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 2796
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/plan-today-remove-future",
+        "TestOriginalClientFixtures/plan-today-preserve-matching-time",
+        "TestOriginalClientFixtures/plan-today-child-nested",
+        "TestOriginalClientFixtures/plan-today-explicit-clear",
+        "TestOriginalClientFixtures/plan-today-no-op-keeps-stale-planner",
+        "TestOriginalClientFixtures/plan-today-invalid-time-cleared",
+        "TestOriginalClientFixtures/plan-today-offset"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [
+        "TestOriginalServiceCommandFixtures/service-plan-child-today",
+        "TestOriginalServiceCommandFixtures/service-plan-offset"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "HRT",
+      "name": "TASK_SHARED_REMOVE_FROM_TODAY",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 471
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 450
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "HGT",
+      "name": "TASK_SHARED_ADD_TAG",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 492
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "HGR",
+      "name": "TASK_SHARED_REMOVE_TAGS_ALL",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 502
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "HMT",
+      "name": "TASK_SHARED_MOVE_IN_TODAY",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 513
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 449
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "HBP",
+      "name": "TASK_SHARED_BATCH_UPDATE_PROJECT",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 525
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "HID",
+      "name": "TASK_SHARED_DELETE_ISSUE_PROVIDER",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 542
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "HIM",
+      "name": "TASK_SHARED_DELETE_ISSUE_PROVIDERS",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 555
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "HRC",
+      "name": "TASK_SHARED_DELETE_REPEAT_CFG",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 567
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "HSS",
+      "name": "TASK_SHARED_APPLY_SHORT_SYNTAX",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 579
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "HDL",
+      "name": "TASK_SHARED_SET_DEADLINE",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 330
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/deadline-autoplan-unscheduled",
+        "TestOriginalClientFixtures/deadline-future-plan-respected",
+        "TestOriginalClientFixtures/deadline-overdue-clear-orphan-reminder",
+        "TestOriginalClientFixtures/deadline-timed-preserves-due-time",
+        "TestOriginalClientFixtures/deadline-done-no-autoplan",
+        "TestOriginalClientFixtures/deadline-child-nested-parent-schedule",
+        "TestOriginalClientFixtures/deadline-legacy-missing-context-no-autoplan",
+        "TestOriginalClientFixtures/deadline-invalid-day-noop",
+        "TestOriginalClientFixtures/deadline-offset-preserves-matching-time"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "HDT",
+      "name": "TASK_SHARED_PLAN_DEADLINE_FOR_TODAY",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 348
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/deadline-rollover-parent-first",
+        "TestOriginalClientFixtures/deadline-no-context-does-not-autoplan"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "HXD",
+      "name": "TASK_SHARED_REMOVE_DEADLINE",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 363
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/deadline-remove-preserves-plan"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "HCR",
+      "name": "TASK_SHARED_CLEAR_DEADLINE_REMINDER",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 373
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/deadline-dismiss-reminder-only"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "TUU",
+      "name": "TASK_UPDATE_UI",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/store/task.actions.ts",
+          "line": 45
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 815
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalFullTaskUpdates/update-ui-collapse",
+        "TestOriginalFullTaskUpdates/update-ui-clear-survives-json",
+        "TestOriginalFullTaskUpdates/update-ui-junk-clears-rejected"
+      ],
+      "wireFixtures": [
+        "TestOriginalFullTaskUpdates/update-ui-collapse",
+        "TestOriginalFullTaskUpdates/update-ui-clear-survives-json",
+        "TestOriginalFullTaskUpdates/update-ui-junk-clears-rejected"
+      ],
+      "commandFixtures": [
+        "TestOriginalTaskTreeCommands/display-hide-done",
+        "TestOriginalTaskTreeCommands/display-hide-all",
+        "TestOriginalTaskTreeCommands/display-show-cleared-field"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "IA",
+      "name": "ISSUE_PROVIDER_ADD",
+      "sources": [
+        {
+          "path": "src/app/features/issue/store/issue-provider.actions.ts",
+          "line": 15
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "IU",
+      "name": "ISSUE_PROVIDER_UPDATE",
+      "sources": [
+        {
+          "path": "src/app/features/issue/store/issue-provider.actions.ts",
+          "line": 34
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "IS",
+      "name": "ISSUE_PROVIDER_SORT_FIRST",
+      "sources": [
+        {
+          "path": "src/app/features/issue/store/issue-provider.actions.ts",
+          "line": 49
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "KS",
+      "name": "TIME_TRACKING_SYNC_SESSIONS",
+      "sources": [
+        {
+          "path": "src/app/features/time-tracking/store/time-tracking.actions.ts",
+          "line": 34
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/remote-context-sessions",
+        "TestOriginalTimeReplayTransitions/remote-session-replaces-PROJECT",
+        "TestOriginalTimeReplayTransitions/remote-session-replaces-TAG"
+      ],
+      "wireFixtures": [
+        "TestOriginalCapturePayload/context-session",
+        "TestOriginalTimeReplayTransitions/remote-session-replaces-PROJECT",
+        "TestOriginalTimeReplayTransitions/remote-session-replaces-TAG"
+      ],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "KT",
+      "name": "TIME_TRACKING_SYNC_TIME_SPENT",
+      "sources": [
+        {
+          "path": "src/app/features/time-tracking/store/time-tracking.actions.ts",
+          "line": 75
+        },
+        {
+          "path": "src/app/op-log/capture/operation-capture.service.ts",
+          "line": 208
+        },
+        {
+          "path": "src/app/op-log/sync/superseded-operation-resolver.service.ts",
+          "line": 405
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/remote-time-delta",
+        "TestOriginalTimeReplayTransitions/remote-increment-child",
+        "TestOriginalTimeReplayTransitions/remote-increment-top",
+        "TestOriginalTimeReplayTransitions/remote-increment-parent",
+        "TestOriginalTimeReplayTransitions/remote-increment-missing",
+        "TestOriginalTimeReplayTransitions/remote-duration-negative",
+        "TestOriginalTimeReplayTransitions/remote-duration-zero",
+        "TestOriginalTimeReplayTransitions/remote-duration-null",
+        "TestOriginalTimeReplayTransitions/remote-duration-string",
+        "TestOriginalTimeReplayTransitions/remote-duration-boolean",
+        "TestOriginalTimeReplayTransitions/remote-missing-duration",
+        "TestOriginalTimeReplayTransitions/remote-preserves-fractional-parent",
+        "TestOriginalTimeReplayTransitions/remote-increment-new-day"
+      ],
+      "wireFixtures": [
+        "TestOriginalCapturePayload/delta-time",
+        "TestOriginalTimeReplayTransitions/remote-increment-child",
+        "TestOriginalTimeReplayTransitions/remote-increment-top",
+        "TestOriginalTimeReplayTransitions/remote-increment-parent",
+        "TestOriginalTimeReplayTransitions/remote-increment-missing",
+        "TestOriginalTimeReplayTransitions/remote-duration-negative",
+        "TestOriginalTimeReplayTransitions/remote-duration-zero",
+        "TestOriginalTimeReplayTransitions/remote-duration-null",
+        "TestOriginalTimeReplayTransitions/remote-duration-string",
+        "TestOriginalTimeReplayTransitions/remote-duration-boolean",
+        "TestOriginalTimeReplayTransitions/remote-missing-duration",
+        "TestOriginalTimeReplayTransitions/remote-preserves-fractional-parent",
+        "TestOriginalTimeReplayTransitions/remote-increment-new-day"
+      ],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "KW",
+      "name": "TIME_TRACKING_UPDATE_CONTEXT_DATA",
+      "sources": [
+        {
+          "path": "src/app/features/time-tracking/store/time-tracking.actions.ts",
+          "line": 11
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/context-manual-correction",
+        "TestOriginalTimeReplayTransitions/remote-worklog-merges-PROJECT",
+        "TestOriginalTimeReplayTransitions/remote-worklog-merges-TAG"
+      ],
+      "wireFixtures": [
+        "TestOriginalCapturePayload/context-edit",
+        "TestOriginalTimeReplayTransitions/remote-worklog-merges-PROJECT",
+        "TestOriginalTimeReplayTransitions/remote-worklog-merges-TAG"
+      ],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "LU",
+      "name": "PLANNER_UPSERT_DAY",
+      "sources": [
+        {
+          "path": "src/app/features/planner/store/planner.actions.ts",
+          "line": 12
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "LT",
+      "name": "PLANNER_TRANSFER_TASK",
+      "sources": [
+        {
+          "path": "src/app/features/planner/store/planner.actions.ts",
+          "line": 30
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 2881
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "LM",
+      "name": "PLANNER_MOVE_IN_LIST",
+      "sources": [
+        {
+          "path": "src/app/features/planner/store/planner.actions.ts",
+          "line": 47
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "LB",
+      "name": "PLANNER_MOVE_BEFORE_TASK",
+      "sources": [
+        {
+          "path": "src/app/features/planner/store/planner.actions.ts",
+          "line": 61
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "LP",
+      "name": "PLANNER_PLAN_TASK_FOR_DAY",
+      "sources": [
+        {
+          "path": "src/app/features/planner/store/planner.actions.ts",
+          "line": 71
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "MP",
+      "name": "MENU_TREE_UPDATE_PROJECT",
+      "sources": [
+        {
+          "path": "src/app/features/menu-tree/store/menu-tree.actions.ts",
+          "line": 9
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/menu-update-project"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/menu-update-project"
+      ],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "MG",
+      "name": "MENU_TREE_UPDATE_TAG",
+      "sources": [
+        {
+          "path": "src/app/features/menu-tree/store/menu-tree.actions.ts",
+          "line": 22
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/menu-update-tags"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/menu-update-tags"
+      ],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "MU",
+      "name": "MENU_TREE_UPDATE_FOLDER",
+      "sources": [
+        {
+          "path": "src/app/features/menu-tree/store/menu-tree.actions.ts",
+          "line": 48
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/menu-rename-nested"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/menu-rename-nested"
+      ],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "MD",
+      "name": "MENU_TREE_DELETE_FOLDER",
+      "sources": [
+        {
+          "path": "src/app/features/menu-tree/store/menu-tree.actions.ts",
+          "line": 35
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/menu-delete-project-folder",
+        "TestOriginalModelTransitionsAndOperations/menu-delete-tag-folder"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/menu-delete-project-folder",
+        "TestOriginalModelTransitionsAndOperations/menu-delete-tag-folder"
+      ],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "NA",
+      "name": "NOTE_ADD",
+      "sources": [
+        {
+          "path": "src/app/features/note/store/note.actions.ts",
+          "line": 27
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/note-create-project",
+        "TestOriginalClientFixtures/note-create-pinned"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "NU",
+      "name": "NOTE_UPDATE",
+      "sources": [
+        {
+          "path": "src/app/features/note/store/note.actions.ts",
+          "line": 40
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/note-content",
+        "TestOriginalClientFixtures/pin-idempotent",
+        "TestOriginalClientFixtures/unpin"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "ND",
+      "name": "NOTE_DELETE",
+      "sources": [
+        {
+          "path": "src/app/features/note/store/note.actions.ts",
+          "line": 53
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/delete-note"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "NO",
+      "name": "NOTE_UPDATE_ORDER",
+      "sources": [
+        {
+          "path": "src/app/features/note/store/note.actions.ts",
+          "line": 9
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/order-ignores-missing"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "NM",
+      "name": "NOTE_MOVE_TO_PROJECT",
+      "sources": [
+        {
+          "path": "src/app/features/note/store/note.actions.ts",
+          "line": 74
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/move-project"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "PA",
+      "name": "PROJECT_ADD",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 15
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/project-create",
+        "TestOriginalClientFixtures/project-create-inbox"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "PU",
+      "name": "PROJECT_UPDATE",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 33
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/project-update-backlog",
+        "TestOriginalClientFixtures/disable-backlog-field"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "PO",
+      "name": "PROJECT_UPDATE_ORDER",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 65
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/project-order-visible-subset",
+        "TestOriginalClientFixtures/project-order-inbox-first"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "PC",
+      "name": "PROJECT_UPDATE_ADVANCED_CFG",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 48
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/project-advanced-merge"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "PX",
+      "name": "PROJECT_ARCHIVE",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 79
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/project-archive",
+        "TestOriginalClientFixtures/inbox-cannot-archive"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "PR",
+      "name": "PROJECT_UNARCHIVE",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 92
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/project-unarchive"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "PCO",
+      "name": "PROJECT_COMPLETE",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 105
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/project-complete",
+        "TestOriginalClientFixtures/inbox-cannot-complete"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "PRO",
+      "name": "PROJECT_REOPEN",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 118
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/project-reopen"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "PH",
+      "name": "PROJECT_TOGGLE_HIDE",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 131
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/project-hide"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "PM",
+      "name": "PROJECT_MOVE_TASK_IN_BACKLOG",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 256
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalWorkContextTransitions/PM-regular",
+        "TestOriginalWorkContextTransitions/PM-boundary",
+        "TestOriginalWorkContextTransitions/PM-missing",
+        "TestOriginalWorkContextTransitions/PM-duplicates"
+      ],
+      "wireFixtures": [
+        "TestOriginalWorkContextTransitions/PM-regular",
+        "TestOriginalWorkContextTransitions/PM-boundary",
+        "TestOriginalWorkContextTransitions/PM-missing",
+        "TestOriginalWorkContextTransitions/PM-duplicates"
+      ],
+      "commandFixtures": [
+        "TestOriginalBacklogCommands/drag-BACKLOG-BACKLOG"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "PMU",
+      "name": "PROJECT_MOVE_TASK_UP_BACKLOG",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 172
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalWorkContextTransitions/PMU-regular",
+        "TestOriginalWorkContextTransitions/PMU-boundary",
+        "TestOriginalWorkContextTransitions/PMU-missing",
+        "TestOriginalWorkContextTransitions/PMU-duplicates"
+      ],
+      "wireFixtures": [
+        "TestOriginalWorkContextTransitions/PMU-regular",
+        "TestOriginalWorkContextTransitions/PMU-boundary",
+        "TestOriginalWorkContextTransitions/PMU-missing",
+        "TestOriginalWorkContextTransitions/PMU-duplicates"
+      ],
+      "commandFixtures": [
+        "TestOriginalWorkContextCommands/task_move_up-backlog-back-one",
+        "TestOriginalWorkContextCommands/task_move_up-backlog-back-two"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "PMD",
+      "name": "PROJECT_MOVE_TASK_DOWN_BACKLOG",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 193
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalWorkContextTransitions/PMD-regular",
+        "TestOriginalWorkContextTransitions/PMD-boundary",
+        "TestOriginalWorkContextTransitions/PMD-missing",
+        "TestOriginalWorkContextTransitions/PMD-duplicates"
+      ],
+      "wireFixtures": [
+        "TestOriginalWorkContextTransitions/PMD-regular",
+        "TestOriginalWorkContextTransitions/PMD-boundary",
+        "TestOriginalWorkContextTransitions/PMD-missing",
+        "TestOriginalWorkContextTransitions/PMD-duplicates"
+      ],
+      "commandFixtures": [
+        "TestOriginalWorkContextCommands/task_move_down-backlog-back-one",
+        "TestOriginalWorkContextCommands/task_move_down-backlog-back-two"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "PMT",
+      "name": "PROJECT_MOVE_TASK_TOP_BACKLOG",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 214
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalWorkContextTransitions/PMT-regular",
+        "TestOriginalWorkContextTransitions/PMT-boundary",
+        "TestOriginalWorkContextTransitions/PMT-missing",
+        "TestOriginalWorkContextTransitions/PMT-duplicates"
+      ],
+      "wireFixtures": [
+        "TestOriginalWorkContextTransitions/PMT-regular",
+        "TestOriginalWorkContextTransitions/PMT-boundary",
+        "TestOriginalWorkContextTransitions/PMT-missing",
+        "TestOriginalWorkContextTransitions/PMT-duplicates"
+      ],
+      "commandFixtures": [
+        "TestOriginalWorkContextCommands/task_move_to_top-backlog-back-one",
+        "TestOriginalWorkContextCommands/task_move_to_top-backlog-back-two"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "PMB",
+      "name": "PROJECT_MOVE_TASK_BOTTOM_BACKLOG",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 235
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalWorkContextTransitions/PMB-regular",
+        "TestOriginalWorkContextTransitions/PMB-boundary",
+        "TestOriginalWorkContextTransitions/PMB-missing",
+        "TestOriginalWorkContextTransitions/PMB-duplicates"
+      ],
+      "wireFixtures": [
+        "TestOriginalWorkContextTransitions/PMB-regular",
+        "TestOriginalWorkContextTransitions/PMB-boundary",
+        "TestOriginalWorkContextTransitions/PMB-missing",
+        "TestOriginalWorkContextTransitions/PMB-duplicates"
+      ],
+      "commandFixtures": [
+        "TestOriginalWorkContextCommands/task_move_to_bottom-backlog-back-one",
+        "TestOriginalWorkContextCommands/task_move_to_bottom-backlog-back-two"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "PRB",
+      "name": "PROJECT_MOVE_TO_BACKLOG",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 269
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalBacklogTransitions/PRB-regular",
+        "TestOriginalBacklogTransitions/PRB-disabled",
+        "TestOriginalBacklogTransitions/PRB-missing-anchor",
+        "TestOriginalBacklogTransitions/PRB-existing-in-both",
+        "TestOriginalBacklogTransitions/PRB-self-anchor",
+        "TestOriginalBacklogTransitions/PRB-auto-bottom"
+      ],
+      "wireFixtures": [
+        "TestOriginalBacklogTransitions/PRB-regular",
+        "TestOriginalBacklogTransitions/PRB-disabled",
+        "TestOriginalBacklogTransitions/PRB-missing-anchor",
+        "TestOriginalBacklogTransitions/PRB-existing-in-both",
+        "TestOriginalBacklogTransitions/PRB-self-anchor",
+        "TestOriginalBacklogTransitions/PRB-auto-bottom"
+      ],
+      "commandFixtures": [
+        "TestOriginalBacklogCommands/drag-UNDONE-BACKLOG"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "PBR",
+      "name": "PROJECT_MOVE_FROM_BACKLOG",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 282
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalBacklogTransitions/PBR-regular",
+        "TestOriginalBacklogTransitions/PBR-disabled",
+        "TestOriginalBacklogTransitions/PBR-missing-anchor",
+        "TestOriginalBacklogTransitions/PBR-existing-in-both",
+        "TestOriginalBacklogTransitions/PBR-self-anchor",
+        "TestOriginalBacklogTransitions/PBR-auto-bottom"
+      ],
+      "wireFixtures": [
+        "TestOriginalBacklogTransitions/PBR-regular",
+        "TestOriginalBacklogTransitions/PBR-disabled",
+        "TestOriginalBacklogTransitions/PBR-missing-anchor",
+        "TestOriginalBacklogTransitions/PBR-existing-in-both",
+        "TestOriginalBacklogTransitions/PBR-self-anchor",
+        "TestOriginalBacklogTransitions/PBR-auto-bottom"
+      ],
+      "commandFixtures": [
+        "TestOriginalBacklogCommands/drag-BACKLOG-UNDONE",
+        "TestOriginalBacklogCommands/drag-BACKLOG-DONE"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "PAB",
+      "name": "PROJECT_AUTO_MOVE_TO_BACKLOG",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 146
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalBacklogTransitions/PAB-regular",
+        "TestOriginalBacklogTransitions/PAB-disabled",
+        "TestOriginalBacklogTransitions/PAB-missing-anchor",
+        "TestOriginalBacklogTransitions/PAB-existing-in-both",
+        "TestOriginalBacklogTransitions/PAB-self-anchor",
+        "TestOriginalBacklogTransitions/PAB-auto-bottom"
+      ],
+      "wireFixtures": [
+        "TestOriginalBacklogTransitions/PAB-regular",
+        "TestOriginalBacklogTransitions/PAB-disabled",
+        "TestOriginalBacklogTransitions/PAB-missing-anchor",
+        "TestOriginalBacklogTransitions/PAB-existing-in-both",
+        "TestOriginalBacklogTransitions/PAB-self-anchor",
+        "TestOriginalBacklogTransitions/PAB-auto-bottom"
+      ],
+      "commandFixtures": [
+        "TestOriginalBacklogCommands/task_send_to_backlog-false",
+        "TestOriginalBacklogCommands/task_send_to_backlog-true"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "PAR",
+      "name": "PROJECT_AUTO_MOVE_FROM_BACKLOG",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 159
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalBacklogTransitions/PAR-regular",
+        "TestOriginalBacklogTransitions/PAR-disabled",
+        "TestOriginalBacklogTransitions/PAR-missing-anchor",
+        "TestOriginalBacklogTransitions/PAR-existing-in-both",
+        "TestOriginalBacklogTransitions/PAR-self-anchor",
+        "TestOriginalBacklogTransitions/PAR-auto-bottom"
+      ],
+      "wireFixtures": [
+        "TestOriginalBacklogTransitions/PAR-regular",
+        "TestOriginalBacklogTransitions/PAR-disabled",
+        "TestOriginalBacklogTransitions/PAR-missing-anchor",
+        "TestOriginalBacklogTransitions/PAR-existing-in-both",
+        "TestOriginalBacklogTransitions/PAR-self-anchor",
+        "TestOriginalBacklogTransitions/PAR-auto-bottom"
+      ],
+      "commandFixtures": [
+        "TestOriginalBacklogCommands/task_send_to_regular-false",
+        "TestOriginalBacklogCommands/task_send_to_regular-true"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "PBA",
+      "name": "PROJECT_MOVE_ALL_BACKLOG",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 301
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/disable-backlog-followup"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "RA",
+      "name": "REPEAT_CFG_ADD",
+      "sources": [
+        {
+          "path": "src/app/features/task-repeat-cfg/store/task-repeat-cfg.actions.ts",
+          "line": 9
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "RU",
+      "name": "REPEAT_CFG_UPDATE",
+      "sources": [
+        {
+          "path": "src/app/features/task-repeat-cfg/store/task-repeat-cfg.actions.ts",
+          "line": 27
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "RUM",
+      "name": "REPEAT_CFG_UPDATE_MULTIPLE",
+      "sources": [
+        {
+          "path": "src/app/features/task-repeat-cfg/store/task-repeat-cfg.actions.ts",
+          "line": 47
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "RD",
+      "name": "REPEAT_CFG_DELETE",
+      "sources": [
+        {
+          "path": "src/app/features/task-repeat-cfg/store/task-repeat-cfg.actions.ts",
+          "line": 67
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "RDM",
+      "name": "REPEAT_CFG_DELETE_MULTIPLE",
+      "sources": [
+        {
+          "path": "src/app/features/task-repeat-cfg/store/task-repeat-cfg.actions.ts",
+          "line": 80
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 419
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "RDI",
+      "name": "REPEAT_CFG_DELETE_INSTANCE",
+      "sources": [
+        {
+          "path": "src/app/features/task-repeat-cfg/store/task-repeat-cfg.actions.ts",
+          "line": 94
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "RX",
+      "name": "REPEAT_CFG_UPSERT",
+      "sources": [
+        {
+          "path": "src/app/features/task-repeat-cfg/store/task-repeat-cfg.actions.ts",
+          "line": 62
+        }
+      ],
+      "captureClassification": "local-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "S1",
+      "name": "SECTION_ADD",
+      "sources": [
+        {
+          "path": "src/app/features/section/store/section.actions.ts",
+          "line": 9
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/section-add",
+        "TestOriginalModelTransitionsAndOperations/section-duplicate",
+        "TestOriginalModelTransitionsAndOperations/section-other-context",
+        "TestOriginalModelTransitionsAndOperations/section-third"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/section-add",
+        "TestOriginalModelTransitionsAndOperations/section-duplicate",
+        "TestOriginalModelTransitionsAndOperations/section-other-context",
+        "TestOriginalModelTransitionsAndOperations/section-third"
+      ],
+      "commandFixtures": [
+        "TestOriginalModelCommands/section-create"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "S2",
+      "name": "SECTION_DELETE",
+      "sources": [
+        {
+          "path": "src/app/features/section/store/section.actions.ts",
+          "line": 22
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/section-delete"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/section-delete"
+      ],
+      "commandFixtures": [
+        "TestOriginalModelCommands/section-delete"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "S3",
+      "name": "SECTION_UPDATE",
+      "sources": [
+        {
+          "path": "src/app/features/section/store/section.actions.ts",
+          "line": 35
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/section-title-cap",
+        "TestOriginalModelTransitionsAndOperations/section-null-title",
+        "TestOriginalModelTransitionsAndOperations/section-missing-update"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/section-title-cap",
+        "TestOriginalModelTransitionsAndOperations/section-null-title",
+        "TestOriginalModelTransitionsAndOperations/section-missing-update"
+      ],
+      "commandFixtures": [
+        "TestOriginalModelCommands/section-update"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "S4",
+      "name": "SECTION_UPDATE_ORDER",
+      "sources": [
+        {
+          "path": "src/app/features/section/store/section.actions.ts",
+          "line": 48
+        },
+        {
+          "path": "src/app/op-log/sync/superseded-operation-resolver.service.ts",
+          "line": 89
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/section-stale-partial-order"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/section-stale-partial-order"
+      ],
+      "commandFixtures": [
+        "TestOriginalModelCommands/section-reorder"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "S5",
+      "name": "SECTION_ADD_TASK",
+      "sources": [
+        {
+          "path": "src/app/features/section/store/section.actions.ts",
+          "line": 72
+        },
+        {
+          "path": "src/app/op-log/sync/superseded-operation-resolver.service.ts",
+          "line": 90
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/section-add-task",
+        "TestOriginalModelTransitionsAndOperations/section-append-task",
+        "TestOriginalModelTransitionsAndOperations/section-missing-anchor-preserves",
+        "TestOriginalModelTransitionsAndOperations/section-transfer"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/section-add-task",
+        "TestOriginalModelTransitionsAndOperations/section-append-task",
+        "TestOriginalModelTransitionsAndOperations/section-missing-anchor-preserves",
+        "TestOriginalModelTransitionsAndOperations/section-transfer"
+      ],
+      "commandFixtures": [
+        "TestOriginalModelCommands/section-task-place"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "S6",
+      "name": "SECTION_REMOVE_TASK",
+      "sources": [
+        {
+          "path": "src/app/features/section/store/section.actions.ts",
+          "line": 113
+        },
+        {
+          "path": "src/app/op-log/sync/superseded-operation-resolver.service.ts",
+          "line": 91
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/section-remove-reorders-context"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/section-remove-reorders-context"
+      ],
+      "commandFixtures": [
+        "TestOriginalModelCommands/section-task-remove"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "SA",
+      "name": "COUNTER_ADD",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 8
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalCounterTransitions/counter-add",
+        "TestOriginalCounterTransitions/counter-duplicate",
+        "TestOriginalCounterTransitions/counter-add-disabled",
+        "TestOriginalCounterTransitions/counter-add-second"
+      ],
+      "wireFixtures": [
+        "TestOriginalCounterTransitions/counter-add",
+        "TestOriginalCounterTransitions/counter-duplicate",
+        "TestOriginalCounterTransitions/counter-add-disabled",
+        "TestOriginalCounterTransitions/counter-add-second"
+      ],
+      "commandFixtures": [
+        "TestOriginalCounterCommands/create"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "SU",
+      "name": "COUNTER_UPDATE",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 21
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalCounterTransitions/counter-update",
+        "TestOriginalCounterTransitions/counter-update-missing"
+      ],
+      "wireFixtures": [
+        "TestOriginalCounterTransitions/counter-update",
+        "TestOriginalCounterTransitions/counter-update-missing"
+      ],
+      "commandFixtures": [
+        "TestOriginalCounterCommands/update"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "SUS",
+      "name": "COUNTER_UPSERT",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 35
+        }
+      ],
+      "captureClassification": "local-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "SD",
+      "name": "COUNTER_DELETE",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 40
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalCounterTransitions/counter-delete",
+        "TestOriginalCounterTransitions/counter-delete-missing"
+      ],
+      "wireFixtures": [
+        "TestOriginalCounterTransitions/counter-delete",
+        "TestOriginalCounterTransitions/counter-delete-missing"
+      ],
+      "commandFixtures": [
+        "TestOriginalCounterCommands/delete"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "SDM",
+      "name": "COUNTER_DELETE_MULTIPLE",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 53
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 420
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalCounterTransitions/counter-delete-many"
+      ],
+      "wireFixtures": [
+        "TestOriginalCounterTransitions/counter-delete-many"
+      ],
+      "commandFixtures": [
+        "TestOriginalCounterCommands/delete-many"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "SUA",
+      "name": "COUNTER_UPDATE_ALL",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 67
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalCounterTransitions/counter-update-all-merge-dedup"
+      ],
+      "wireFixtures": [
+        "TestOriginalCounterTransitions/counter-update-all-merge-dedup"
+      ],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "ST",
+      "name": "COUNTER_SET_TODAY",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 81
+        },
+        {
+          "path": "src/app/op-log/sync/superseded-operation-resolver.service.ts",
+          "line": 636
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalCounterTransitions/counter-set-today",
+        "TestOriginalCounterTransitions/counter-set-negative-clamped",
+        "TestOriginalCounterTransitions/counter-set-fraction"
+      ],
+      "wireFixtures": [
+        "TestOriginalCounterTransitions/counter-set-today",
+        "TestOriginalCounterTransitions/counter-set-negative-clamped",
+        "TestOriginalCounterTransitions/counter-set-fraction"
+      ],
+      "commandFixtures": [
+        "TestOriginalCounterCommands/set-today",
+        "TestOriginalCounterCommands/increment",
+        "TestOriginalCounterCommands/decrement-clamps"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "SI",
+      "name": "COUNTER_INCREASE_TODAY",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 109
+        }
+      ],
+      "captureClassification": "local-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "SX",
+      "name": "COUNTER_DECREASE_TODAY",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 116
+        }
+      ],
+      "captureClassification": "local-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "SG",
+      "name": "COUNTER_TOGGLE",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 122
+        }
+      ],
+      "captureClassification": "local-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "SO",
+      "name": "COUNTER_TURN_OFF_ALL",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 128
+        }
+      ],
+      "captureClassification": "local-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "SF",
+      "name": "COUNTER_SET_OFF",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 133
+        }
+      ],
+      "captureClassification": "local-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "SN",
+      "name": "COUNTER_SET_ON",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 139
+        }
+      ],
+      "captureClassification": "local-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "SFD",
+      "name": "COUNTER_SET_FOR_DATE",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 94
+        },
+        {
+          "path": "src/app/op-log/sync/superseded-operation-resolver.service.ts",
+          "line": 637
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalCounterTransitions/counter-set-date",
+        "TestOriginalCounterTransitions/counter-set-missing-noop"
+      ],
+      "wireFixtures": [
+        "TestOriginalCounterTransitions/counter-set-date",
+        "TestOriginalCounterTransitions/counter-set-missing-noop"
+      ],
+      "commandFixtures": [
+        "TestOriginalCounterCommands/set-date"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "SC",
+      "name": "COUNTER_SYNC_TIME",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 169
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalCounterTransitions/counter-sync-increment"
+      ],
+      "wireFixtures": [
+        "TestOriginalCounterTransitions/counter-sync-increment"
+      ],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "SM",
+      "name": "COUNTER_UPDATE_ORDER",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 151
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalCounterTransitions/counter-reorder-partial",
+        "TestOriginalCounterTransitions/counter-reorder-duplicate-native"
+      ],
+      "wireFixtures": [
+        "TestOriginalCounterTransitions/counter-reorder-partial",
+        "TestOriginalCounterTransitions/counter-reorder-duplicate-native"
+      ],
+      "commandFixtures": [
+        "TestOriginalCounterCommands/reorder"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "TU",
+      "name": "TASK_UPDATE_MULTIPLE_SIMPLE",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/store/task.actions.ts",
+          "line": 28
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 817
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "TA",
+      "name": "TASK_ADD_SUB",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/store/task.actions.ts",
+          "line": 150
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalTaskTreeAndTimeTransitions/add-sub-inherits-first-time",
+        "TestOriginalTaskTreeAndTimeTransitions/add-sub-keeps-explicit-time",
+        "TestOriginalTaskTreeAndTimeTransitions/add-sub-duplicate-id",
+        "TestOriginalTaskTreeAndTimeTransitions/add-sub-missing-parent-noop",
+        "TestOriginalTaskTreeAndTimeTransitions/add-sub-redirects-current"
+      ],
+      "wireFixtures": [
+        "TestOriginalTaskTreeAndTimeTransitions/add-sub-inherits-first-time",
+        "TestOriginalTaskTreeAndTimeTransitions/add-sub-keeps-explicit-time",
+        "TestOriginalTaskTreeAndTimeTransitions/add-sub-duplicate-id",
+        "TestOriginalTaskTreeAndTimeTransitions/add-sub-missing-parent-noop",
+        "TestOriginalTaskTreeAndTimeTransitions/add-sub-redirects-current"
+      ],
+      "commandFixtures": [
+        "TestOriginalLocalTaskWorkflows/child-PROJECT-p-default",
+        "TestOriginalLocalTaskWorkflows/child-PROJECT-p-explicit-time",
+        "TestOriginalLocalTaskWorkflows/child-PROJECT-p-explicit-day",
+        "TestOriginalLocalTaskWorkflows/child-TAG-own-default",
+        "TestOriginalLocalTaskWorkflows/child-TAG-own-explicit-time",
+        "TestOriginalLocalTaskWorkflows/child-TAG-own-explicit-day",
+        "TestOriginalLocalTaskWorkflows/child-TAG-TODAY-default",
+        "TestOriginalLocalTaskWorkflows/child-TAG-TODAY-explicit-time",
+        "TestOriginalLocalTaskWorkflows/child-TAG-TODAY-explicit-day",
+        "TestOriginalLocalTaskWorkflows/child-inherits-first-parent-time",
+        "TestOriginalLocalTaskWorkflows/child-fractional-parent-total"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "TMS",
+      "name": "TASK_MOVE_SUB",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/store/task.actions.ts",
+          "line": 67
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalTaskTreeAndTimeTransitions/move-sub-other-project",
+        "TestOriginalTaskTreeAndTimeTransitions/move-sub-same-parent",
+        "TestOriginalTaskTreeAndTimeTransitions/move-sub-invalid-parent-noop",
+        "TestOriginalTaskTreeAndTimeTransitions/move-sub-cycle-noop"
+      ],
+      "wireFixtures": [
+        "TestOriginalTaskTreeAndTimeTransitions/move-sub-other-project",
+        "TestOriginalTaskTreeAndTimeTransitions/move-sub-same-parent",
+        "TestOriginalTaskTreeAndTimeTransitions/move-sub-invalid-parent-noop",
+        "TestOriginalTaskTreeAndTimeTransitions/move-sub-cycle-noop"
+      ],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "TMU",
+      "name": "TASK_MOVE_UP",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/store/task.actions.ts",
+          "line": 85
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalTaskTreeAndTimeTransitions/child-order-TMU",
+        "TestOriginalTaskTreeAndTimeTransitions/child-order-missing-TMU"
+      ],
+      "wireFixtures": [
+        "TestOriginalTaskTreeAndTimeTransitions/child-order-TMU",
+        "TestOriginalTaskTreeAndTimeTransitions/child-order-missing-TMU"
+      ],
+      "commandFixtures": [
+        "TestOriginalWorkContextCommands/task_move_up-PROJECT-p-other",
+        "TestOriginalWorkContextCommands/task_move_up-TAG-own-other",
+        "TestOriginalWorkContextCommands/task_move_up-TAG-TODAY-other"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "TMD",
+      "name": "TASK_MOVE_DOWN",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/store/task.actions.ts",
+          "line": 98
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalTaskTreeAndTimeTransitions/child-order-TMD",
+        "TestOriginalTaskTreeAndTimeTransitions/child-order-missing-TMD"
+      ],
+      "wireFixtures": [
+        "TestOriginalTaskTreeAndTimeTransitions/child-order-TMD",
+        "TestOriginalTaskTreeAndTimeTransitions/child-order-missing-TMD"
+      ],
+      "commandFixtures": [
+        "TestOriginalWorkContextCommands/task_move_down-PROJECT-p-child",
+        "TestOriginalWorkContextCommands/task_move_down-TAG-own-child",
+        "TestOriginalWorkContextCommands/task_move_down-TAG-TODAY-child"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "TMT",
+      "name": "TASK_MOVE_TOP",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/store/task.actions.ts",
+          "line": 111
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalTaskTreeAndTimeTransitions/child-order-TMT",
+        "TestOriginalTaskTreeAndTimeTransitions/child-order-missing-TMT"
+      ],
+      "wireFixtures": [
+        "TestOriginalTaskTreeAndTimeTransitions/child-order-TMT",
+        "TestOriginalTaskTreeAndTimeTransitions/child-order-missing-TMT"
+      ],
+      "commandFixtures": [
+        "TestOriginalTaskTreeCommands/child-top",
+        "TestOriginalWorkContextCommands/task_move_to_top-PROJECT-p-child",
+        "TestOriginalWorkContextCommands/task_move_to_top-PROJECT-p-other",
+        "TestOriginalWorkContextCommands/task_move_to_top-TAG-own-child",
+        "TestOriginalWorkContextCommands/task_move_to_top-TAG-own-other",
+        "TestOriginalWorkContextCommands/task_move_to_top-TAG-TODAY-child",
+        "TestOriginalWorkContextCommands/task_move_to_top-TAG-TODAY-other"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "TMB",
+      "name": "TASK_MOVE_BOTTOM",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/store/task.actions.ts",
+          "line": 124
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalTaskTreeAndTimeTransitions/child-order-TMB",
+        "TestOriginalTaskTreeAndTimeTransitions/child-order-missing-TMB"
+      ],
+      "wireFixtures": [
+        "TestOriginalTaskTreeAndTimeTransitions/child-order-TMB",
+        "TestOriginalTaskTreeAndTimeTransitions/child-order-missing-TMB"
+      ],
+      "commandFixtures": [
+        "TestOriginalTaskTreeCommands/child-bottom",
+        "TestOriginalWorkContextCommands/task_move_to_bottom-PROJECT-p-child",
+        "TestOriginalWorkContextCommands/task_move_to_bottom-PROJECT-p-other",
+        "TestOriginalWorkContextCommands/task_move_to_bottom-TAG-own-child",
+        "TestOriginalWorkContextCommands/task_move_to_bottom-TAG-own-other",
+        "TestOriginalWorkContextCommands/task_move_to_bottom-TAG-TODAY-child",
+        "TestOriginalWorkContextCommands/task_move_to_bottom-TAG-TODAY-other"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "TR",
+      "name": "TASK_REMOVE_TIME_SPENT",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/store/task.actions.ts",
+          "line": 137
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalTaskTreeAndTimeTransitions/remove-time-incremental-parent",
+        "TestOriginalTaskTreeAndTimeTransitions/remove-time-clamps-zero",
+        "TestOriginalTaskTreeAndTimeTransitions/remove-time-missing-day",
+        "TestOriginalTaskTreeAndTimeTransitions/remove-time-missing-task-noop",
+        "TestOriginalTaskTreeAndTimeTransitions/remove-time-fractional-parent",
+        "TestOriginalTaskTreeAndTimeTransitions/remove-time-retains-existing-fraction"
+      ],
+      "wireFixtures": [
+        "TestOriginalTaskTreeAndTimeTransitions/remove-time-incremental-parent",
+        "TestOriginalTaskTreeAndTimeTransitions/remove-time-clamps-zero",
+        "TestOriginalTaskTreeAndTimeTransitions/remove-time-missing-day",
+        "TestOriginalTaskTreeAndTimeTransitions/remove-time-missing-task-noop",
+        "TestOriginalTaskTreeAndTimeTransitions/remove-time-fractional-parent",
+        "TestOriginalTaskTreeAndTimeTransitions/remove-time-retains-existing-fraction"
+      ],
+      "commandFixtures": [
+        "TestOriginalTaskTreeCommands/remove-time",
+        "TestOriginalTaskTreeCommands/remove-time-default-day"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "TRD",
+      "name": "TASK_ROUND_TIME_SPENT",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/store/task.actions.ts",
+          "line": 165
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 349
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalTaskTreeAndTimeTransitions/round-5M-false",
+        "TestOriginalTaskTreeAndTimeTransitions/round-5M-true",
+        "TestOriginalTaskTreeAndTimeTransitions/round-QUARTER-false",
+        "TestOriginalTaskTreeAndTimeTransitions/round-QUARTER-true",
+        "TestOriginalTaskTreeAndTimeTransitions/round-HALF-false",
+        "TestOriginalTaskTreeAndTimeTransitions/round-HALF-true",
+        "TestOriginalTaskTreeAndTimeTransitions/round-HOUR-false",
+        "TestOriginalTaskTreeAndTimeTransitions/round-HOUR-true",
+        "TestOriginalTaskTreeAndTimeTransitions/round-project-filter",
+        "TestOriginalTaskTreeAndTimeTransitions/round-null-project-filter",
+        "TestOriginalTaskTreeAndTimeTransitions/round-negative-js-half"
+      ],
+      "wireFixtures": [
+        "TestOriginalTaskTreeAndTimeTransitions/round-5M-false",
+        "TestOriginalTaskTreeAndTimeTransitions/round-5M-true",
+        "TestOriginalTaskTreeAndTimeTransitions/round-QUARTER-false",
+        "TestOriginalTaskTreeAndTimeTransitions/round-QUARTER-true",
+        "TestOriginalTaskTreeAndTimeTransitions/round-HALF-false",
+        "TestOriginalTaskTreeAndTimeTransitions/round-HALF-true",
+        "TestOriginalTaskTreeAndTimeTransitions/round-HOUR-false",
+        "TestOriginalTaskTreeAndTimeTransitions/round-HOUR-true",
+        "TestOriginalTaskTreeAndTimeTransitions/round-project-filter",
+        "TestOriginalTaskTreeAndTimeTransitions/round-null-project-filter",
+        "TestOriginalTaskTreeAndTimeTransitions/round-negative-js-half"
+      ],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "TGS",
+      "name": "TASK_ADD_TAGS_SHORT_SYNTAX",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/store/task.actions.ts",
+          "line": 185
+        }
+      ],
+      "captureClassification": "local-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "UU",
+      "name": "PLUGIN_UPSERT_USER_DATA",
+      "sources": [
+        {
+          "path": "src/app/plugins/store/plugin.actions.ts",
+          "line": 8
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/plugin-user-add",
+        "TestOriginalModelTransitionsAndOperations/plugin-user-replace",
+        "TestOriginalModelTransitionsAndOperations/plugin-user-other"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/plugin-user-add",
+        "TestOriginalModelTransitionsAndOperations/plugin-user-replace",
+        "TestOriginalModelTransitionsAndOperations/plugin-user-other"
+      ],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "UD",
+      "name": "PLUGIN_DELETE_USER_DATA",
+      "sources": [
+        {
+          "path": "src/app/plugins/store/plugin.actions.ts",
+          "line": 21
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/plugin-user-delete"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/plugin-user-delete"
+      ],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "UM",
+      "name": "PLUGIN_UPSERT_METADATA",
+      "sources": [
+        {
+          "path": "src/app/plugins/store/plugin.actions.ts",
+          "line": 35
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/plugin-meta-add",
+        "TestOriginalModelTransitionsAndOperations/plugin-meta-replace"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/plugin-meta-add",
+        "TestOriginalModelTransitionsAndOperations/plugin-meta-replace"
+      ],
+      "commandFixtures": [
+        "TestOriginalModelCommands/plugin-enable",
+        "TestOriginalModelCommands/plugin-disable"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "UDM",
+      "name": "PLUGIN_DELETE_METADATA",
+      "sources": [
+        {
+          "path": "src/app/plugins/store/plugin.actions.ts",
+          "line": 48
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalModelTransitionsAndOperations/plugin-meta-delete"
+      ],
+      "wireFixtures": [
+        "TestOriginalModelTransitionsAndOperations/plugin-meta-delete"
+      ],
+      "commandFixtures": [
+        "TestOriginalModelCommands/plugin-delete-metadata"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "WMU",
+      "name": "WORK_CONTEXT_MOVE_UP",
+      "sources": [
+        {
+          "path": "src/app/features/work-context/store/work-context-meta.actions.ts",
+          "line": 35
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalWorkContextTransitions/WMU-regular",
+        "TestOriginalWorkContextTransitions/WMU-boundary",
+        "TestOriginalWorkContextTransitions/WMU-missing",
+        "TestOriginalWorkContextTransitions/WMU-duplicates"
+      ],
+      "wireFixtures": [
+        "TestOriginalWorkContextTransitions/WMU-regular",
+        "TestOriginalWorkContextTransitions/WMU-boundary",
+        "TestOriginalWorkContextTransitions/WMU-missing",
+        "TestOriginalWorkContextTransitions/WMU-duplicates"
+      ],
+      "commandFixtures": [
+        "TestOriginalWorkContextCommands/task_move_up-PROJECT-p-parent",
+        "TestOriginalWorkContextCommands/task_move_up-PROJECT-p-top",
+        "TestOriginalWorkContextCommands/task_move_up-PROJECT-p-child",
+        "TestOriginalWorkContextCommands/task_move_up-TAG-own-parent",
+        "TestOriginalWorkContextCommands/task_move_up-TAG-own-top",
+        "TestOriginalWorkContextCommands/task_move_up-TAG-own-child",
+        "TestOriginalWorkContextCommands/task_move_up-TAG-TODAY-parent",
+        "TestOriginalWorkContextCommands/task_move_up-TAG-TODAY-top",
+        "TestOriginalWorkContextCommands/task_move_up-TAG-TODAY-child"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "WMD",
+      "name": "WORK_CONTEXT_MOVE_DOWN",
+      "sources": [
+        {
+          "path": "src/app/features/work-context/store/work-context-meta.actions.ts",
+          "line": 54
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalWorkContextTransitions/WMD-regular",
+        "TestOriginalWorkContextTransitions/WMD-boundary",
+        "TestOriginalWorkContextTransitions/WMD-missing",
+        "TestOriginalWorkContextTransitions/WMD-duplicates"
+      ],
+      "wireFixtures": [
+        "TestOriginalWorkContextTransitions/WMD-regular",
+        "TestOriginalWorkContextTransitions/WMD-boundary",
+        "TestOriginalWorkContextTransitions/WMD-missing",
+        "TestOriginalWorkContextTransitions/WMD-duplicates"
+      ],
+      "commandFixtures": [
+        "TestOriginalWorkContextCommands/task_move_down-PROJECT-p-parent",
+        "TestOriginalWorkContextCommands/task_move_down-PROJECT-p-top",
+        "TestOriginalWorkContextCommands/task_move_down-PROJECT-p-other",
+        "TestOriginalWorkContextCommands/task_move_down-TAG-own-parent",
+        "TestOriginalWorkContextCommands/task_move_down-TAG-own-top",
+        "TestOriginalWorkContextCommands/task_move_down-TAG-own-other",
+        "TestOriginalWorkContextCommands/task_move_down-TAG-TODAY-parent",
+        "TestOriginalWorkContextCommands/task_move_down-TAG-TODAY-top",
+        "TestOriginalWorkContextCommands/task_move_down-TAG-TODAY-other"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "WMT",
+      "name": "WORK_CONTEXT_MOVE_TOP",
+      "sources": [
+        {
+          "path": "src/app/features/work-context/store/work-context-meta.actions.ts",
+          "line": 73
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalWorkContextTransitions/WMT-regular",
+        "TestOriginalWorkContextTransitions/WMT-boundary",
+        "TestOriginalWorkContextTransitions/WMT-missing",
+        "TestOriginalWorkContextTransitions/WMT-duplicates"
+      ],
+      "wireFixtures": [
+        "TestOriginalWorkContextTransitions/WMT-regular",
+        "TestOriginalWorkContextTransitions/WMT-boundary",
+        "TestOriginalWorkContextTransitions/WMT-missing",
+        "TestOriginalWorkContextTransitions/WMT-duplicates"
+      ],
+      "commandFixtures": [
+        "TestOriginalWorkContextCommands/task_move_to_top-PROJECT-p-parent",
+        "TestOriginalWorkContextCommands/task_move_to_top-PROJECT-p-top",
+        "TestOriginalWorkContextCommands/task_move_to_top-TAG-own-parent",
+        "TestOriginalWorkContextCommands/task_move_to_top-TAG-own-top",
+        "TestOriginalWorkContextCommands/task_move_to_top-TAG-TODAY-parent",
+        "TestOriginalWorkContextCommands/task_move_to_top-TAG-TODAY-top"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "WMB",
+      "name": "WORK_CONTEXT_MOVE_BOTTOM",
+      "sources": [
+        {
+          "path": "src/app/features/work-context/store/work-context-meta.actions.ts",
+          "line": 92
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalWorkContextTransitions/WMB-regular",
+        "TestOriginalWorkContextTransitions/WMB-boundary",
+        "TestOriginalWorkContextTransitions/WMB-missing",
+        "TestOriginalWorkContextTransitions/WMB-duplicates"
+      ],
+      "wireFixtures": [
+        "TestOriginalWorkContextTransitions/WMB-regular",
+        "TestOriginalWorkContextTransitions/WMB-boundary",
+        "TestOriginalWorkContextTransitions/WMB-missing",
+        "TestOriginalWorkContextTransitions/WMB-duplicates"
+      ],
+      "commandFixtures": [
+        "TestOriginalWorkContextCommands/task_move_to_bottom-PROJECT-p-parent",
+        "TestOriginalWorkContextCommands/task_move_to_bottom-PROJECT-p-top",
+        "TestOriginalWorkContextCommands/task_move_to_bottom-TAG-own-parent",
+        "TestOriginalWorkContextCommands/task_move_to_bottom-TAG-own-top",
+        "TestOriginalWorkContextCommands/task_move_to_bottom-TAG-TODAY-parent",
+        "TestOriginalWorkContextCommands/task_move_to_bottom-TAG-TODAY-top"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "WM",
+      "name": "WORK_CONTEXT_MOVE",
+      "sources": [
+        {
+          "path": "src/app/features/work-context/store/work-context-meta.actions.ts",
+          "line": 15
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalWorkContextTransitions/WM-regular",
+        "TestOriginalWorkContextTransitions/WM-boundary",
+        "TestOriginalWorkContextTransitions/WM-missing",
+        "TestOriginalWorkContextTransitions/WM-duplicates"
+      ],
+      "wireFixtures": [
+        "TestOriginalWorkContextTransitions/WM-regular",
+        "TestOriginalWorkContextTransitions/WM-boundary",
+        "TestOriginalWorkContextTransitions/WM-missing",
+        "TestOriginalWorkContextTransitions/WM-duplicates"
+      ],
+      "commandFixtures": [
+        "TestOriginalBacklogCommands/drag-PROJECT-p-UNDONE-UNDONE-first",
+        "TestOriginalBacklogCommands/drag-PROJECT-p-UNDONE-UNDONE-after",
+        "TestOriginalBacklogCommands/drag-PROJECT-p-UNDONE-UNDONE-missing",
+        "TestOriginalBacklogCommands/drag-PROJECT-p-DONE-DONE-first",
+        "TestOriginalBacklogCommands/drag-PROJECT-p-DONE-DONE-after",
+        "TestOriginalBacklogCommands/drag-PROJECT-p-DONE-DONE-missing",
+        "TestOriginalBacklogCommands/drag-PROJECT-p-UNDONE-DONE-first",
+        "TestOriginalBacklogCommands/drag-PROJECT-p-UNDONE-DONE-after",
+        "TestOriginalBacklogCommands/drag-PROJECT-p-UNDONE-DONE-missing",
+        "TestOriginalBacklogCommands/drag-PROJECT-p-DONE-UNDONE-first",
+        "TestOriginalBacklogCommands/drag-PROJECT-p-DONE-UNDONE-after",
+        "TestOriginalBacklogCommands/drag-PROJECT-p-DONE-UNDONE-missing",
+        "TestOriginalBacklogCommands/drag-TAG-own-UNDONE-UNDONE-first",
+        "TestOriginalBacklogCommands/drag-TAG-own-UNDONE-UNDONE-after",
+        "TestOriginalBacklogCommands/drag-TAG-own-UNDONE-UNDONE-missing",
+        "TestOriginalBacklogCommands/drag-TAG-own-DONE-DONE-first",
+        "TestOriginalBacklogCommands/drag-TAG-own-DONE-DONE-after",
+        "TestOriginalBacklogCommands/drag-TAG-own-DONE-DONE-missing",
+        "TestOriginalBacklogCommands/drag-TAG-own-UNDONE-DONE-first",
+        "TestOriginalBacklogCommands/drag-TAG-own-UNDONE-DONE-after",
+        "TestOriginalBacklogCommands/drag-TAG-own-UNDONE-DONE-missing",
+        "TestOriginalBacklogCommands/drag-TAG-own-DONE-UNDONE-first",
+        "TestOriginalBacklogCommands/drag-TAG-own-DONE-UNDONE-after",
+        "TestOriginalBacklogCommands/drag-TAG-own-DONE-UNDONE-missing",
+        "TestOriginalBacklogCommands/drag-TAG-TODAY-UNDONE-UNDONE-first",
+        "TestOriginalBacklogCommands/drag-TAG-TODAY-UNDONE-UNDONE-after",
+        "TestOriginalBacklogCommands/drag-TAG-TODAY-UNDONE-UNDONE-missing",
+        "TestOriginalBacklogCommands/drag-TAG-TODAY-DONE-DONE-first",
+        "TestOriginalBacklogCommands/drag-TAG-TODAY-DONE-DONE-after",
+        "TestOriginalBacklogCommands/drag-TAG-TODAY-DONE-DONE-missing",
+        "TestOriginalBacklogCommands/drag-TAG-TODAY-UNDONE-DONE-first",
+        "TestOriginalBacklogCommands/drag-TAG-TODAY-UNDONE-DONE-after",
+        "TestOriginalBacklogCommands/drag-TAG-TODAY-UNDONE-DONE-missing",
+        "TestOriginalBacklogCommands/drag-TAG-TODAY-DONE-UNDONE-first",
+        "TestOriginalBacklogCommands/drag-TAG-TODAY-DONE-UNDONE-after",
+        "TestOriginalBacklogCommands/drag-TAG-TODAY-DONE-UNDONE-missing"
+      ],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "XA",
+      "name": "ATTACHMENT_ADD",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/task-attachment/task-attachment.actions.ts",
+          "line": 9
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/attachment-add-preserve-unknown",
+        "TestOriginalClientFixtures/attachment-duplicate-id-preserved"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "XU",
+      "name": "ATTACHMENT_UPDATE",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/task-attachment/task-attachment.actions.ts",
+          "line": 22
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/attachment-update-all-matching"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "XD",
+      "name": "ATTACHMENT_DELETE",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/task-attachment/task-attachment.actions.ts",
+          "line": 35
+        }
+      ],
+      "captureClassification": "persistent-action",
+      "stateFixtures": [
+        "TestOriginalClientFixtures/attachment-delete-all-matching"
+      ],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "partial"
+    },
+    {
+      "code": "YL",
+      "name": "LOAD_ALL_DATA",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/load-all-data.action.ts",
+          "line": 5
+        },
+        {
+          "path": "src/app/op-log/backup/backup.service.ts",
+          "line": 447
+        },
+        {
+          "path": "src/app/op-log/clean-slate/clean-slate.service.ts",
+          "line": 124
+        },
+        {
+          "path": "src/app/op-log/sync/server-migration.service.ts",
+          "line": 345
+        }
+      ],
+      "captureClassification": "local-action",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "YB",
+      "name": "LOAD_BACKUP_DATA",
+      "sources": [],
+      "captureClassification": "direct-operation-or-legacy",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "YM",
+      "name": "MIGRATION_GENESIS_IMPORT",
+      "sources": [
+        {
+          "path": "src/app/op-log/persistence/operation-log-migration.service.ts",
+          "line": 360
+        }
+      ],
+      "captureClassification": "direct-operation-or-legacy",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "YR",
+      "name": "RECOVERY_DATA_IMPORT",
+      "sources": [
+        {
+          "path": "src/app/op-log/persistence/operation-log-recovery.service.ts",
+          "line": 140
+        }
+      ],
+      "captureClassification": "direct-operation-or-legacy",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    },
+    {
+      "code": "ZR",
+      "name": "REPAIR_AUTO",
+      "sources": [
+        {
+          "path": "src/app/op-log/validation/repair-operation.service.ts",
+          "line": 214
+        }
+      ],
+      "captureClassification": "direct-operation-or-legacy",
+      "stateFixtures": [],
+      "wireFixtures": [],
+      "commandFixtures": [],
+      "workflowParity": "pending",
+      "replayParity": "pending",
+      "deviceConvergence": "pending",
+      "status": "pending"
+    }
+  ]
+}

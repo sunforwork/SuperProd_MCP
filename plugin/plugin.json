@@ -1,0 +1,24 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "super-productivity-mcp",
+  "version": "2.3.0",
+  "description": "Version-pinned Super Productivity MCP with reviewed JSON edits and named recovery points.",
+  "author": {
+    "name": "SUN"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Super Productivity MCP",
+        "shortDescription": "任务、笔记与工时管理",
+        "longDescription": "通过自托管 MCP 管理任务、笔记与工时，审核完整业务 JSON 编辑及命名备份回档。支持多用户；完整客户端业务复刻仍在开发。",
+        "developerName": "SUN",
+        "category": "Productivity",
+        "capabilities": [
+          "Interactive"
+        ],
+        "defaultPrompt": "查看我的 Super Productivity 数据和当前可用功能。"
+      }
+    }
+  }
+}

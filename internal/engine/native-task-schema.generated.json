@@ -1,0 +1,356 @@
+{
+  "upstreamCommit": "71eb7780bcf5d6b1dfdcd39a8a8265547d040760",
+  "version": "3.1",
+  "components": {
+    "schemas": {
+      "ReadonlyTaskCopy": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string"
+          },
+          "timeSpentOnDay": {
+            "$ref": "#/components/schemas/ReadonlyTimeSpentOnDayCopy"
+          },
+          "priority": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "const": 1
+              },
+              {
+                "const": 2
+              },
+              {
+                "const": 3
+              },
+              {
+                "const": "high"
+              },
+              {
+                "const": "medium"
+              },
+              {
+                "const": "low"
+              }
+            ],
+            "description": "Optional priority: 1/low = Low, 2/medium = Medium, 3/high = High. `undefined` and `null` both\nmean \"no priority\" and are treated the same by sorting and filtering.\nPreserve historical string encodings on reads; explicit changes write numbers.\nClients predating priorities ignore the field. Older priority-aware builds\naccept only one encoding and must upgrade before syncing mixed data."
+          },
+          "dueWithTime": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "description": "Scheduled time as Unix timestamp (ms). For tasks scheduled with a specific time.\n\nIMPORTANT: dueWithTime and dueDay follow a mutual exclusivity pattern:\n- When dueWithTime is set, dueDay MUST be undefined/null (not both set)\n- When reading, check dueWithTime FIRST (it takes priority over dueDay)"
+          },
+          "dueDay": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Scheduled date as ISO date string (YYYY-MM-DD). For tasks scheduled for all-day (no specific time).\n\nIMPORTANT: dueDay and dueWithTime follow a mutual exclusivity pattern:\n- When dueDay is set, dueWithTime should be undefined/null (for new data)\n- When dueWithTime is set, dueDay MUST be undefined/null (not both set)\n- When reading, check dueWithTime FIRST (it takes priority over dueDay)\n- Legacy data may have both fields set; handle via priority pattern"
+          },
+          "hasPlannedTime": {
+            "type": "boolean"
+          },
+          "deadlineDay": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Deadline date as ISO string (YYYY-MM-DD). For deadlines without a specific time.\nFollows mutual exclusivity with deadlineWithTime (same pattern as dueDay/dueWithTime)."
+          },
+          "deadlineWithTime": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "description": "Deadline as Unix timestamp (ms). For deadlines with a specific time.\nWhen set, deadlineDay MUST be cleared."
+          },
+          "deadlineRemindAt": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "description": "Reminder timestamp for the deadline."
+          },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReadonlyTaskAttachmentCopy"
+            }
+          },
+          "reminderId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "modified": {
+            "type": "number"
+          },
+          "doneOn": {
+            "type": "number"
+          },
+          "parentId": {
+            "type": "string"
+          },
+          "remindAt": {
+            "type": "number"
+          },
+          "repeatCfgId": {
+            "type": "string"
+          },
+          "_hideSubTasksMode": {
+            "oneOf": [
+              {
+                "const": 1
+              },
+              {
+                "const": 2
+              }
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "timeEstimate": {
+            "type": "number"
+          },
+          "timeSpent": {
+            "type": "number"
+          },
+          "isDone": {
+            "type": "boolean"
+          },
+          "tagIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "created": {
+            "type": "number"
+          },
+          "updated": {
+            "type": "number"
+          },
+          "subTaskIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "issueId": {
+            "type": "string"
+          },
+          "issueProviderId": {
+            "type": "string"
+          },
+          "issueType": {
+            "oneOf": [
+              {
+                "type": "string",
+                "pattern": "^(plugin:(.*))"
+              },
+              {
+                "const": "JIRA"
+              },
+              {
+                "const": "GITLAB"
+              },
+              {
+                "const": "CALDAV"
+              },
+              {
+                "const": "ICAL"
+              },
+              {
+                "const": "OPEN_PROJECT"
+              },
+              {
+                "const": "REDMINE"
+              },
+              {
+                "const": "NEXTCLOUD_DECK"
+              },
+              {
+                "const": "PLAINSPACE"
+              },
+              {
+                "const": "GITHUB"
+              },
+              {
+                "const": "CLICKUP"
+              },
+              {
+                "const": "GITEA"
+              },
+              {
+                "const": "LINEAR"
+              },
+              {
+                "const": "TRELLO"
+              },
+              {
+                "const": "AZURE_DEVOPS"
+              }
+            ]
+          },
+          "issueWasUpdated": {
+            "type": "boolean"
+          },
+          "issueLastUpdated": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          },
+          "issueAttachmentNr": {
+            "type": "number"
+          },
+          "issueTimeTracked": {
+            "$ref": "#/components/schemas/IssueTaskTimeTracked"
+          },
+          "issuePoints": {
+            "type": "number"
+          },
+          "issueLastSyncedValues": {
+            "$ref": "#/components/schemas/Recordstringunknown"
+          }
+        },
+        "required": [
+          "projectId",
+          "timeSpentOnDay",
+          "attachments",
+          "id",
+          "title",
+          "timeEstimate",
+          "timeSpent",
+          "isDone",
+          "tagIds",
+          "created",
+          "subTaskIds"
+        ],
+        "description": "Make all properties in T readonly"
+      },
+      "ReadonlyTimeSpentOnDayCopy": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "description": "Make all properties in T readonly",
+        "additionalProperties": {
+          "type": "number"
+        }
+      },
+      "ReadonlyTaskAttachmentCopy": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "originalImgPath": {
+            "type": "string"
+          },
+          "type": {
+            "$ref": "#/components/schemas/DropPasteInputType"
+          },
+          "title": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "description": "Make all properties in T readonly"
+      },
+      "DropPasteInputType": {
+        "oneOf": [
+          {
+            "const": "NOTE"
+          },
+          {
+            "const": "FILE"
+          },
+          {
+            "const": "LINK"
+          },
+          {
+            "const": "IMG"
+          },
+          {
+            "const": "COMMAND"
+          }
+        ]
+      },
+      "IssueTaskTimeTracked": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": {
+          "type": "number"
+        }
+      },
+      "Recordstringunknown": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "description": "Construct a type with a set of properties K of type T",
+        "additionalProperties": {}
+      }
+    }
+  },
+  "schema": {
+    "$ref": "#/components/schemas/ReadonlyTaskCopy"
+  }
+}

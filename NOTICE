@@ -1,0 +1,9 @@
+This project ports selected behavior from Super Productivity.
+Upstream: https://github.com/super-productivity/super-productivity
+Pinned commit: 71eb7780bcf5d6b1dfdcd39a8a8265547d040760
+Copyright (c) 2018 Johannes Millan, MIT License (see LICENSE).
+Third-party components retain their respective licenses.
+See THIRD_PARTY_NOTICES.md and licenses/ for production component texts,
+file-level notices and the development-only dependency inventory.
+Original Super Productivity MCP additions: Copyright (c) 2026 SUN.
+This development integration is not an official Super Productivity or OpenAI product.

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>审核业务数据修改</title>
+<style>
+body {
+  font: 14px/1.6 system-ui, sans-serif;
+  margin: 0;
+  padding: 24px;
+  color: var(--color-text-primary,#172033);
+  background: var(--color-background-primary,#fff);
+}
+h1 {
+  font-size: 22px;
+  margin: 0;
+}
+.muted {
+  color: #667085;
+}
+.notice {
+  padding: 14px;
+  background: #fff6e1;
+  border-radius: 10px;
+  color: #674710;
+}
+pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font: 12px/1.5 ui-monospace, monospace;
+  background: #f4f6f8;
+  border-radius: 8px;
+  padding: 12px;
+  max-height: 340px;
+  overflow: auto;
+  color: #172033;
+}
+button {
+  font: inherit;
+  padding: 9px 15px;
+  border: 0;
+  border-radius: 8px;
+  background: #18634a;
+  color: white;
+  cursor: pointer;
+  margin: 4px;
+}
+button:disabled {
+  opacity: .45;
+  cursor: default;
+}
+.secondary {
+  background: #e9f2ee;
+  color: #164b3a;
+}
+label {
+  display: block;
+  margin: 16px 0;
+}
+details {
+  margin: 10px 0;
+  border: 1px solid #dce4df;
+  border-radius: 10px;
+  padding: 10px;
+}
+summary {
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+#status {
+  white-space: pre-wrap;
+}
+.sides {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.path {
+  overflow-wrap: anywhere;
+  font-family: monospace;
+}
+@media (max-width: 550px) {
+  body {
+    padding: 14px;
+  }
+  .sides {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+<h1>审核业务数据修改</h1><p id="reason">等待提案…</p><p id="impact" class="notice" hidden></p><p id="version" class="muted"></p><p id="summary"></p>
+<section id="diff" aria-label="完整数据差异"></section><button id="more" class="secondary" hidden>继续加载差异</button>
+<label><input id="reviewed" type="checkbox" disabled>我已核对本次修改及归档影响，批准这份固定结果</label><button id="approve" disabled>批准并提交</button><p id="status" role="status"></p>
+<script>
+(() => {
+    'use strict';
+    const el = id => document.getElementById(id);
+    let proposal = null, credential = '', hostOrigin = null, seq = 0, busy = false, offset = 0, generation = 0;
+    const pending = new Map();
+    function send(value) { parent.postMessage(value, hostOrigin && hostOrigin !== 'null' ? hostOrigin : '*'); }
+    function request(method, params) { const id = ++seq; return new Promise((resolve, reject) => { const timer = setTimeout(() => { pending.delete(id); reject(Error('主机响应超时，请查询提案状态。')); }, 30000); pending.set(id, { resolve, reject, timer }); send({ jsonrpc: '2.0', id, method, params }); }); }
+    async function call(name, args) { const result = await request('tools/call', { name, arguments: args }); if (result.isError)
+        throw Error((result.content || []).map(x => x.text || '').join('\n')); return result.structuredContent; }
+    function node(tag, text) { const n = document.createElement(tag); if (text !== undefined)
+        n.textContent = text; return n; }
+    function action(label, fn) { const b = node('button', label); b.type = 'button'; b.className = 'secondary'; b.onclick = async () => { b.disabled = true; try {
+        await fn();
+    }
+    catch (e) {
+        el('status').textContent = e.message;
+    }
+    finally {
+        b.disabled = false;
+    } }; return b; }
+    async function explore(source, path, container, start = 0) {
+        const current = generation;
+        const out = await call('read_business_json', { source, id: proposal.proposalId, path, offset: start, draftVersion: proposal.draftVersion });
+        if (current !== generation)
+            return;
+        if (out.kind === 'string') {
+            container.append(node('pre', out.chunk));
+            if (out.hasMore)
+                container.append(action('继续读取长文本', () => explore(source, path, container, out.nextOffset)));
+            return;
+        }
+        if (Object.hasOwn(out, 'value')) {
+            container.append(node('pre', JSON.stringify(out.value, null, 2)));
+            return;
+        }
+        for (const entry of out.entries || []) {
+            const d = node('details');
+            d.append(node('summary', entry.path));
+            const body = node('div');
+            d.append(body);
+            container.append(d);
+            if (entry.expand)
+                body.append(action('展开此字段', () => explore(source, entry.path, body)));
+            else
+                body.append(node('pre', JSON.stringify(entry.value, null, 2)));
+        }
+        if (out.hasMore)
+            container.append(action('加载下一页内容', () => explore(source, path, container, out.nextOffset)));
+    }
+    function appendDiff(items) { for (const change of items) {
+        const detail = node('details');
+        detail.append(node('summary', (change.beforeExists ? (change.afterExists ? '修改 ' : '删除 ') : '新增 ') + change.path));
+        const sides = node('div');
+        sides.className = 'sides';
+        for (const side of ['before', 'after']) {
+            const box = node('div');
+            box.append(node('strong', side === 'before' ? '修改前' : '修改后'));
+            if (!change[side + 'Exists'])
+                box.append(node('p', '字段不存在'));
+            else if (change[side]?.omitted)
+                box.append(action('查看完整内容', () => explore(side === 'before' ? 'before' : 'proposal', change.path, box)));
+            else
+                box.append(node('pre', JSON.stringify(change[side], null, 2)));
+            sides.append(box);
+        }
+        detail.append(sides);
+        el('diff').append(detail);
+    } }
+    function display(result) { if (!result?.structuredContent?.proposalId)
+        return; generation++; proposal = result.structuredContent; credential = result._meta?.approvalCredential || ''; busy = false; offset = 0; el('diff').replaceChildren(); el('status').textContent = ''; el('reason').textContent = proposal.reason; el('version').textContent = '基础版本 ' + proposal.baseRevision + ' · 到期 ' + new Date(proposal.expires).toLocaleString() + ' · 内容哈希 ' + proposal.patchHash; el('impact').hidden = !proposal.impact; el('impact').textContent = proposal.impact ? '将替换完整业务快照，包含两个归档分区。离线设备下次同步可能需要处理原生同步冲突。' : ''; const s = proposal.diffSummary; el('summary').textContent = s ? '新增 ' + s.added + ' · 删除 ' + s.removed + ' · 修改 ' + s.modified + ' · 共 ' + proposal.diffCount + ' 项差异' : '数据差异'; appendDiff(proposal.diff || []); offset = (proposal.diff || []).length; el('more').hidden = offset >= (proposal.diffCount || offset); el('reviewed').checked = false; el('reviewed').disabled = !credential; el('approve').disabled = true; if (!credential)
+        el('status').textContent = '主机未提供审批凭据，请重新生成提案。'; }
+    window.addEventListener('message', event => { if (event.source !== parent || !event.data || event.data.jsonrpc !== '2.0')
+        return; if (hostOrigin !== null && event.origin !== hostOrigin)
+        return; const msg = event.data; if (msg.id && pending.has(msg.id)) {
+        hostOrigin = event.origin;
+        const p = pending.get(msg.id);
+        pending.delete(msg.id);
+        clearTimeout(p.timer);
+        msg.error ? p.reject(Error(msg.error.message)) : p.resolve(msg.result);
+        return;
+    } if (msg.method === 'ui/notifications/tool-result')
+        display(msg.params); });
+    el('more').onclick = async () => { const current = generation; el('more').disabled = true; try {
+        const page = await call('get_edit_diff', { proposalId: proposal.proposalId, offset, limit: 30 });
+        if (current !== generation)
+            return;
+        if (page.patchHash !== proposal.patchHash)
+            throw Error('提案已变化，请重新预览。');
+        appendDiff(page.items);
+        offset = page.nextOffset;
+        el('more').hidden = !page.hasMore;
+    }
+    catch (e) {
+        credential = '';
+        el('reviewed').disabled = true;
+        el('approve').disabled = true;
+        el('status').textContent = e.message;
+    }
+    finally {
+        el('more').disabled = false;
+    } };
+    el('reviewed').onchange = () => { el('approve').disabled = busy || !el('reviewed').checked || !credential; };
+    el('approve').onclick = async () => { if (busy || !credential || !proposal || !el('reviewed').checked)
+        return; if (Date.now() > proposal.expires) {
+        el('status').textContent = '提案已过期，请重新生成。';
+        el('approve').disabled = true;
+        return;
+    } busy = true; el('approve').disabled = true; el('reviewed').disabled = true; el('status').textContent = '正在复核版本并提交…'; try {
+        await call('commit_free_edit', { proposalId: proposal.proposalId, patchHash: proposal.patchHash, approvalCredential: credential });
+        credential = '';
+        el('status').textContent = '已提交到 WebDAV，并回读验证。其他设备接收状态：未知。';
+    }
+    catch (e) {
+        credential = '';
+        el('status').textContent = e.message + ' 请用 get_edit_status 复查。版本变化时须读取最新数据并重新开始。';
+    } };
+    request('ui/initialize', { appInfo: { name: 'super-productivity-review', version: '2.2.0' }, appCapabilities: {}, protocolVersion: '2026-01-26' }).then(() => send({ jsonrpc: '2.0', method: 'ui/notifications/initialized' })).catch(e => el('status').textContent = e.message);
+})();
+</script></html>

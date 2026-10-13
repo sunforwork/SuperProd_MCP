@@ -1,0 +1,1750 @@
+{
+  "upstreamCommit": "71eb7780bcf5d6b1dfdcd39a8a8265547d040760",
+  "actionCount": 147,
+  "actions": [
+    {
+      "name": "ARCHIVE_COMPRESS",
+      "wireAction": "[Archive] Compress Archive",
+      "code": "AC",
+      "sources": [
+        {
+          "path": "src/app/features/archive/store/archive.actions.ts",
+          "line": 51
+        }
+      ]
+    },
+    {
+      "name": "ARCHIVE_FLUSH_YOUNG_TO_OLD",
+      "wireAction": "[Archive] Flush Young to Old",
+      "code": "AF",
+      "sources": [
+        {
+          "path": "src/app/features/archive/store/archive.actions.ts",
+          "line": 30
+        }
+      ]
+    },
+    {
+      "name": "ARCHIVE_REMOTE_DATA_APPLIED",
+      "wireAction": "[Archive] Remote Archive Data Applied",
+      "code": "AR",
+      "sources": [
+        {
+          "path": "src/app/features/archive/store/archive.actions.ts",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "name": "BOARDS_ADD",
+      "wireAction": "[Boards] Add Board",
+      "code": "BA",
+      "sources": [
+        {
+          "path": "src/app/features/boards/store/boards.actions.ts",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "name": "BOARDS_REMOVE",
+      "wireAction": "[Boards] Remove Board",
+      "code": "BD",
+      "sources": [
+        {
+          "path": "src/app/features/boards/store/boards.actions.ts",
+          "line": 33
+        }
+      ]
+    },
+    {
+      "name": "BOARDS_UPDATE",
+      "wireAction": "[Boards] Update Board",
+      "code": "BU",
+      "sources": [
+        {
+          "path": "src/app/features/boards/store/boards.actions.ts",
+          "line": 20
+        }
+      ]
+    },
+    {
+      "name": "BOARDS_UPDATE_PANEL_CFG",
+      "wireAction": "[Boards] Update Panel Cfg",
+      "code": "BP",
+      "sources": [
+        {
+          "path": "src/app/features/boards/store/boards.actions.ts",
+          "line": 46
+        }
+      ]
+    },
+    {
+      "name": "BOARDS_UPDATE_PANEL_TASK_IDS",
+      "wireAction": "[Boards] Update Panel Cfg TaskIds",
+      "code": "BT",
+      "sources": [
+        {
+          "path": "src/app/features/boards/store/boards.actions.ts",
+          "line": 59
+        }
+      ]
+    },
+    {
+      "name": "BOARDS_SORT",
+      "wireAction": "[Boards] Sort Boards",
+      "code": "BS",
+      "sources": [
+        {
+          "path": "src/app/features/boards/store/boards.actions.ts",
+          "line": 72
+        }
+      ]
+    },
+    {
+      "name": "GLOBAL_CONFIG_UPDATE_SECTION",
+      "wireAction": "[Global Config] Update Global Config Section",
+      "code": "CU",
+      "sources": [
+        {
+          "path": "src/app/features/config/store/global-config.actions.ts",
+          "line": 7
+        },
+        {
+          "path": "src/app/op-log/sync/operation-log-upload.service.ts",
+          "line": 814
+        },
+        {
+          "path": "src/app/op-log/sync/sync-import-conflict-gate.service.ts",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "name": "METRIC_ADD",
+      "wireAction": "[Metric] Add Metric",
+      "code": "EA",
+      "sources": [
+        {
+          "path": "src/app/features/metric/store/metric.actions.ts",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "name": "METRIC_DELETE",
+      "wireAction": "[Metric] Delete Metric",
+      "code": "ED",
+      "sources": [
+        {
+          "path": "src/app/features/metric/store/metric.actions.ts",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "name": "METRIC_UPDATE",
+      "wireAction": "[Metric] Update Metric",
+      "code": "EU",
+      "sources": [
+        {
+          "path": "src/app/features/metric/store/metric.actions.ts",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "name": "METRIC_UPSERT",
+      "wireAction": "[Metric] Upsert Metric",
+      "code": "EX",
+      "sources": [
+        {
+          "path": "src/app/features/metric/store/metric.actions.ts",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "name": "METRIC_LOG_FOCUS_SESSION",
+      "wireAction": "[Metric] Log Focus Session",
+      "code": "EL",
+      "sources": [
+        {
+          "path": "src/app/features/metric/store/metric.actions.ts",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "name": "TAG_ADD",
+      "wireAction": "[Tag] Add Tag",
+      "code": "GA",
+      "sources": [
+        {
+          "path": "src/app/features/tag/store/tag.actions.ts",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "name": "TAG_UPDATE",
+      "wireAction": "[Tag] Update Tag",
+      "code": "GU",
+      "sources": [
+        {
+          "path": "src/app/features/tag/store/tag.actions.ts",
+          "line": 19
+        }
+      ]
+    },
+    {
+      "name": "TAG_DELETE",
+      "wireAction": "[Tag] Delete Tag",
+      "code": "GD",
+      "sources": [
+        {
+          "path": "src/app/features/tag/store/tag.actions.ts",
+          "line": 32
+        }
+      ]
+    },
+    {
+      "name": "TAG_DELETE_MULTIPLE",
+      "wireAction": "[Tag] Delete multiple Tags",
+      "code": "GDM",
+      "sources": [
+        {
+          "path": "src/app/features/tag/store/tag.actions.ts",
+          "line": 48
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 418
+        }
+      ]
+    },
+    {
+      "name": "TAG_UPDATE_ORDER",
+      "wireAction": "[Tag] Update Tag Order",
+      "code": "GO",
+      "sources": [
+        {
+          "path": "src/app/features/tag/store/tag.actions.ts",
+          "line": 62
+        }
+      ]
+    },
+    {
+      "name": "TAG_UPDATE_ADVANCED_CONFIG",
+      "wireAction": "[Tag] Update Advanced Config",
+      "code": "GC",
+      "sources": [
+        {
+          "path": "src/app/features/tag/store/tag.actions.ts",
+          "line": 76
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_ADD",
+      "wireAction": "[Task Shared] addTask",
+      "code": "HA",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_UPDATE",
+      "wireAction": "[Task Shared] updateTask",
+      "code": "HU",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 384
+        },
+        {
+          "path": "src/app/op-log/capture/operation-log.effects.ts",
+          "line": 584
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 269
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_DELETE",
+      "wireAction": "[Task Shared] deleteTask",
+      "code": "HD",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 150
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_DELETE_MULTIPLE",
+      "wireAction": "[Task Shared] deleteTasks",
+      "code": "HDM",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 163
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 417
+        },
+        {
+          "path": "src/app/op-log/sync/operation-log-upload.service.ts",
+          "line": 783
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_MOVE_TO_ARCHIVE",
+      "wireAction": "[Task Shared] moveToArchive",
+      "code": "HX",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 186
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 455
+        },
+        {
+          "path": "src/app/op-log/sync/superseded-operation-resolver.service.ts",
+          "line": 697
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_RESTORE",
+      "wireAction": "[Task Shared] restoreTask",
+      "code": "HR",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 199
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 2658
+        },
+        {
+          "path": "src/app/op-log/sync/superseded-operation-resolver.service.ts",
+          "line": 859
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_RESTORE_DELETED",
+      "wireAction": "[Task Shared] restoreDeletedTask",
+      "code": "HRD",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 248
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_CONVERT_TO_SUB",
+      "wireAction": "[Task Shared] convertToSubTask",
+      "code": "HCS",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 136
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_CONVERT_TO_MAIN",
+      "wireAction": "[Task Shared] convertToMainTask",
+      "code": "HC",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 117
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_SCHEDULE_WITH_TIME",
+      "wireAction": "[Task Shared] scheduleTaskWithTime",
+      "code": "HS",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 272
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_RESCHEDULE_WITH_TIME",
+      "wireAction": "[Task Shared] reScheduleTaskWithTime",
+      "code": "HSR",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 288
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_UNSCHEDULE",
+      "wireAction": "[Task Shared] unscheduleTask",
+      "code": "HSX",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 304
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_DISMISS_REMINDER",
+      "wireAction": "[Task Shared] dismissReminderOnly",
+      "code": "HRX",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 319
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_UPDATE_MULTIPLE",
+      "wireAction": "[Task Shared] updateTasks",
+      "code": "HUM",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 409
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 816
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_MOVE_TO_PROJECT",
+      "wireAction": "[Task Shared] moveToOtherProject",
+      "code": "HMP",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 421
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 809
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_DELETE_PROJECT",
+      "wireAction": "[Task Shared] deleteProject",
+      "code": "HPD",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 434
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 192
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_PLAN_FOR_TODAY",
+      "wireAction": "[Task Shared] planTasksForToday",
+      "code": "HPT",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 450
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 2796
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_REMOVE_FROM_TODAY",
+      "wireAction": "[Task Shared] removeTasksFromTodayTag",
+      "code": "HRT",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 471
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 450
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_ADD_TAG",
+      "wireAction": "[Task Shared] addTagToTask",
+      "code": "HGT",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 492
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_REMOVE_TAGS_ALL",
+      "wireAction": "[Task Shared] removeTagsForAllTasks",
+      "code": "HGR",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 502
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_MOVE_IN_TODAY",
+      "wireAction": "[Task Shared] moveTaskInTodayTagList",
+      "code": "HMT",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 513
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 449
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_BATCH_UPDATE_PROJECT",
+      "wireAction": "[Task Shared] batchUpdateForProject",
+      "code": "HBP",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_DELETE_ISSUE_PROVIDER",
+      "wireAction": "[Task Shared] deleteIssueProvider",
+      "code": "HID",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 542
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_DELETE_ISSUE_PROVIDERS",
+      "wireAction": "[Task Shared] deleteIssueProviders",
+      "code": "HIM",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 555
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_DELETE_REPEAT_CFG",
+      "wireAction": "[Task Shared] deleteTaskRepeatCfg",
+      "code": "HRC",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 567
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_APPLY_SHORT_SYNTAX",
+      "wireAction": "[Task Shared] applyShortSyntax",
+      "code": "HSS",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 579
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_SET_DEADLINE",
+      "wireAction": "[Task Shared] setDeadline",
+      "code": "HDL",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 330
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_PLAN_DEADLINE_FOR_TODAY",
+      "wireAction": "[Task Shared] planDeadlineTasksForToday",
+      "code": "HDT",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 348
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_REMOVE_DEADLINE",
+      "wireAction": "[Task Shared] removeDeadline",
+      "code": "HXD",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 363
+        }
+      ]
+    },
+    {
+      "name": "TASK_SHARED_CLEAR_DEADLINE_REMINDER",
+      "wireAction": "[Task Shared] clearDeadlineReminder",
+      "code": "HCR",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/task-shared.actions.ts",
+          "line": 373
+        }
+      ]
+    },
+    {
+      "name": "TASK_UPDATE_UI",
+      "wireAction": "[Task] Update Task Ui",
+      "code": "TUU",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/store/task.actions.ts",
+          "line": 45
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 815
+        }
+      ]
+    },
+    {
+      "name": "ISSUE_PROVIDER_ADD",
+      "wireAction": "[IssueProvider/API] Add IssueProvider",
+      "code": "IA",
+      "sources": [
+        {
+          "path": "src/app/features/issue/store/issue-provider.actions.ts",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "name": "ISSUE_PROVIDER_UPDATE",
+      "wireAction": "[IssueProvider/API] Update IssueProvider",
+      "code": "IU",
+      "sources": [
+        {
+          "path": "src/app/features/issue/store/issue-provider.actions.ts",
+          "line": 34
+        }
+      ]
+    },
+    {
+      "name": "ISSUE_PROVIDER_SORT_FIRST",
+      "wireAction": "[IssueProvider/API] Sort IssueProviders First",
+      "code": "IS",
+      "sources": [
+        {
+          "path": "src/app/features/issue/store/issue-provider.actions.ts",
+          "line": 49
+        }
+      ]
+    },
+    {
+      "name": "TIME_TRACKING_SYNC_SESSIONS",
+      "wireAction": "[TimeTracking] Sync sessions",
+      "code": "KS",
+      "sources": [
+        {
+          "path": "src/app/features/time-tracking/store/time-tracking.actions.ts",
+          "line": 34
+        }
+      ]
+    },
+    {
+      "name": "TIME_TRACKING_SYNC_TIME_SPENT",
+      "wireAction": "[TimeTracking] Sync time spent",
+      "code": "KT",
+      "sources": [
+        {
+          "path": "src/app/features/time-tracking/store/time-tracking.actions.ts",
+          "line": 75
+        },
+        {
+          "path": "src/app/op-log/capture/operation-capture.service.ts",
+          "line": 208
+        },
+        {
+          "path": "src/app/op-log/sync/superseded-operation-resolver.service.ts",
+          "line": 405
+        }
+      ]
+    },
+    {
+      "name": "TIME_TRACKING_UPDATE_CONTEXT_DATA",
+      "wireAction": "[TimeTracking] Update Work Context Data",
+      "code": "KW",
+      "sources": [
+        {
+          "path": "src/app/features/time-tracking/store/time-tracking.actions.ts",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "name": "PLANNER_UPSERT_DAY",
+      "wireAction": "[Planner] Upsert Planner Day",
+      "code": "LU",
+      "sources": [
+        {
+          "path": "src/app/features/planner/store/planner.actions.ts",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "name": "PLANNER_TRANSFER_TASK",
+      "wireAction": "[Planner] Transfer Task",
+      "code": "LT",
+      "sources": [
+        {
+          "path": "src/app/features/planner/store/planner.actions.ts",
+          "line": 30
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 2881
+        }
+      ]
+    },
+    {
+      "name": "PLANNER_MOVE_IN_LIST",
+      "wireAction": "[Planner] Move In List",
+      "code": "LM",
+      "sources": [
+        {
+          "path": "src/app/features/planner/store/planner.actions.ts",
+          "line": 47
+        }
+      ]
+    },
+    {
+      "name": "PLANNER_MOVE_BEFORE_TASK",
+      "wireAction": "[Planner] Move Before Task",
+      "code": "LB",
+      "sources": [
+        {
+          "path": "src/app/features/planner/store/planner.actions.ts",
+          "line": 61
+        }
+      ]
+    },
+    {
+      "name": "PLANNER_PLAN_TASK_FOR_DAY",
+      "wireAction": "[Planner] Plan Task for Day",
+      "code": "LP",
+      "sources": [
+        {
+          "path": "src/app/features/planner/store/planner.actions.ts",
+          "line": 71
+        }
+      ]
+    },
+    {
+      "name": "MENU_TREE_UPDATE_PROJECT",
+      "wireAction": "[MenuTree] Update Project Tree",
+      "code": "MP",
+      "sources": [
+        {
+          "path": "src/app/features/menu-tree/store/menu-tree.actions.ts",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "name": "MENU_TREE_UPDATE_TAG",
+      "wireAction": "[MenuTree] Update Tag Tree",
+      "code": "MG",
+      "sources": [
+        {
+          "path": "src/app/features/menu-tree/store/menu-tree.actions.ts",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "name": "MENU_TREE_UPDATE_FOLDER",
+      "wireAction": "[MenuTree] Update Folder",
+      "code": "MU",
+      "sources": [
+        {
+          "path": "src/app/features/menu-tree/store/menu-tree.actions.ts",
+          "line": 48
+        }
+      ]
+    },
+    {
+      "name": "MENU_TREE_DELETE_FOLDER",
+      "wireAction": "[MenuTree] Delete Folder",
+      "code": "MD",
+      "sources": [
+        {
+          "path": "src/app/features/menu-tree/store/menu-tree.actions.ts",
+          "line": 35
+        }
+      ]
+    },
+    {
+      "name": "NOTE_ADD",
+      "wireAction": "[Note] Add Note",
+      "code": "NA",
+      "sources": [
+        {
+          "path": "src/app/features/note/store/note.actions.ts",
+          "line": 27
+        }
+      ]
+    },
+    {
+      "name": "NOTE_UPDATE",
+      "wireAction": "[Note] Update Note",
+      "code": "NU",
+      "sources": [
+        {
+          "path": "src/app/features/note/store/note.actions.ts",
+          "line": 40
+        }
+      ]
+    },
+    {
+      "name": "NOTE_DELETE",
+      "wireAction": "[Note] Delete Note",
+      "code": "ND",
+      "sources": [
+        {
+          "path": "src/app/features/note/store/note.actions.ts",
+          "line": 53
+        }
+      ]
+    },
+    {
+      "name": "NOTE_UPDATE_ORDER",
+      "wireAction": "[Note] Update Note Order",
+      "code": "NO",
+      "sources": [
+        {
+          "path": "src/app/features/note/store/note.actions.ts",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "name": "NOTE_MOVE_TO_PROJECT",
+      "wireAction": "[Note] Move to other project",
+      "code": "NM",
+      "sources": [
+        {
+          "path": "src/app/features/note/store/note.actions.ts",
+          "line": 74
+        }
+      ]
+    },
+    {
+      "name": "PROJECT_ADD",
+      "wireAction": "[Project] Add Project",
+      "code": "PA",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "name": "PROJECT_UPDATE",
+      "wireAction": "[Project] Update Project",
+      "code": "PU",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 33
+        }
+      ]
+    },
+    {
+      "name": "PROJECT_UPDATE_ORDER",
+      "wireAction": "[Project] Update Project Order",
+      "code": "PO",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 65
+        }
+      ]
+    },
+    {
+      "name": "PROJECT_UPDATE_ADVANCED_CFG",
+      "wireAction": "[Project] Update Project Advanced Cfg",
+      "code": "PC",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 48
+        }
+      ]
+    },
+    {
+      "name": "PROJECT_ARCHIVE",
+      "wireAction": "[Project] Archive Project",
+      "code": "PX",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 79
+        }
+      ]
+    },
+    {
+      "name": "PROJECT_UNARCHIVE",
+      "wireAction": "[Project] Unarchive Project",
+      "code": "PR",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 92
+        }
+      ]
+    },
+    {
+      "name": "PROJECT_COMPLETE",
+      "wireAction": "[Project] Complete Project",
+      "code": "PCO",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 105
+        }
+      ]
+    },
+    {
+      "name": "PROJECT_REOPEN",
+      "wireAction": "[Project] Reopen Project",
+      "code": "PRO",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 118
+        }
+      ]
+    },
+    {
+      "name": "PROJECT_TOGGLE_HIDE",
+      "wireAction": "[Project] Toggle hide from menu",
+      "code": "PH",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 131
+        }
+      ]
+    },
+    {
+      "name": "PROJECT_MOVE_TASK_IN_BACKLOG",
+      "wireAction": "[Project] Move Task in Backlog",
+      "code": "PM",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 256
+        }
+      ]
+    },
+    {
+      "name": "PROJECT_MOVE_TASK_UP_BACKLOG",
+      "wireAction": "[Project] Move Task Up in Backlog",
+      "code": "PMU",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 172
+        }
+      ]
+    },
+    {
+      "name": "PROJECT_MOVE_TASK_DOWN_BACKLOG",
+      "wireAction": "[Project] Move Task Down in Backlog",
+      "code": "PMD",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 193
+        }
+      ]
+    },
+    {
+      "name": "PROJECT_MOVE_TASK_TOP_BACKLOG",
+      "wireAction": "[Project] Move Task to Top in Backlog",
+      "code": "PMT",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 214
+        }
+      ]
+    },
+    {
+      "name": "PROJECT_MOVE_TASK_BOTTOM_BACKLOG",
+      "wireAction": "[Project] Move Task to Bottom in Backlog",
+      "code": "PMB",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 235
+        }
+      ]
+    },
+    {
+      "name": "PROJECT_MOVE_TO_BACKLOG",
+      "wireAction": "[Project] Move Task from regular to backlog",
+      "code": "PRB",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 269
+        }
+      ]
+    },
+    {
+      "name": "PROJECT_MOVE_FROM_BACKLOG",
+      "wireAction": "[Project] Move Task from backlog to regular",
+      "code": "PBR",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 282
+        }
+      ]
+    },
+    {
+      "name": "PROJECT_AUTO_MOVE_TO_BACKLOG",
+      "wireAction": "[Project] Auto Move Task from regular to backlog",
+      "code": "PAB",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 146
+        }
+      ]
+    },
+    {
+      "name": "PROJECT_AUTO_MOVE_FROM_BACKLOG",
+      "wireAction": "[Project] Auto Move Task from backlog to regular",
+      "code": "PAR",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 159
+        }
+      ]
+    },
+    {
+      "name": "PROJECT_MOVE_ALL_BACKLOG",
+      "wireAction": "[Project] Move all backlog tasks to regular",
+      "code": "PBA",
+      "sources": [
+        {
+          "path": "src/app/features/project/store/project.actions.ts",
+          "line": 301
+        }
+      ]
+    },
+    {
+      "name": "REPEAT_CFG_ADD",
+      "wireAction": "[TaskRepeatCfg][Task] Add TaskRepeatCfg to Task",
+      "code": "RA",
+      "sources": [
+        {
+          "path": "src/app/features/task-repeat-cfg/store/task-repeat-cfg.actions.ts",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "name": "REPEAT_CFG_UPDATE",
+      "wireAction": "[TaskRepeatCfg] Update TaskRepeatCfg",
+      "code": "RU",
+      "sources": [
+        {
+          "path": "src/app/features/task-repeat-cfg/store/task-repeat-cfg.actions.ts",
+          "line": 27
+        }
+      ]
+    },
+    {
+      "name": "REPEAT_CFG_UPDATE_MULTIPLE",
+      "wireAction": "[TaskRepeatCfg] Update multiple TaskRepeatCfgs",
+      "code": "RUM",
+      "sources": [
+        {
+          "path": "src/app/features/task-repeat-cfg/store/task-repeat-cfg.actions.ts",
+          "line": 47
+        }
+      ]
+    },
+    {
+      "name": "REPEAT_CFG_DELETE",
+      "wireAction": "[TaskRepeatCfg] Delete TaskRepeatCfg",
+      "code": "RD",
+      "sources": [
+        {
+          "path": "src/app/features/task-repeat-cfg/store/task-repeat-cfg.actions.ts",
+          "line": 67
+        }
+      ]
+    },
+    {
+      "name": "REPEAT_CFG_DELETE_MULTIPLE",
+      "wireAction": "[TaskRepeatCfg] Delete multiple TaskRepeatCfgs",
+      "code": "RDM",
+      "sources": [
+        {
+          "path": "src/app/features/task-repeat-cfg/store/task-repeat-cfg.actions.ts",
+          "line": 80
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 419
+        }
+      ]
+    },
+    {
+      "name": "REPEAT_CFG_DELETE_INSTANCE",
+      "wireAction": "[TaskRepeatCfg] Delete Single Instance",
+      "code": "RDI",
+      "sources": [
+        {
+          "path": "src/app/features/task-repeat-cfg/store/task-repeat-cfg.actions.ts",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "name": "REPEAT_CFG_UPSERT",
+      "wireAction": "[TaskRepeatCfg] Upsert TaskRepeatCfg",
+      "code": "RX",
+      "sources": [
+        {
+          "path": "src/app/features/task-repeat-cfg/store/task-repeat-cfg.actions.ts",
+          "line": 62
+        }
+      ]
+    },
+    {
+      "name": "SECTION_ADD",
+      "wireAction": "[Section] Add Section",
+      "code": "S1",
+      "sources": [
+        {
+          "path": "src/app/features/section/store/section.actions.ts",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "name": "SECTION_DELETE",
+      "wireAction": "[Section] Delete Section",
+      "code": "S2",
+      "sources": [
+        {
+          "path": "src/app/features/section/store/section.actions.ts",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "name": "SECTION_UPDATE",
+      "wireAction": "[Section] Update Section",
+      "code": "S3",
+      "sources": [
+        {
+          "path": "src/app/features/section/store/section.actions.ts",
+          "line": 35
+        }
+      ]
+    },
+    {
+      "name": "SECTION_UPDATE_ORDER",
+      "wireAction": "[Section] Update Section Order",
+      "code": "S4",
+      "sources": [
+        {
+          "path": "src/app/features/section/store/section.actions.ts",
+          "line": 48
+        },
+        {
+          "path": "src/app/op-log/sync/superseded-operation-resolver.service.ts",
+          "line": 89
+        }
+      ]
+    },
+    {
+      "name": "SECTION_ADD_TASK",
+      "wireAction": "[Section] Add Task to Section",
+      "code": "S5",
+      "sources": [
+        {
+          "path": "src/app/features/section/store/section.actions.ts",
+          "line": 72
+        },
+        {
+          "path": "src/app/op-log/sync/superseded-operation-resolver.service.ts",
+          "line": 90
+        }
+      ]
+    },
+    {
+      "name": "SECTION_REMOVE_TASK",
+      "wireAction": "[Section] Remove Task from Section",
+      "code": "S6",
+      "sources": [
+        {
+          "path": "src/app/features/section/store/section.actions.ts",
+          "line": 113
+        },
+        {
+          "path": "src/app/op-log/sync/superseded-operation-resolver.service.ts",
+          "line": 91
+        }
+      ]
+    },
+    {
+      "name": "COUNTER_ADD",
+      "wireAction": "[SimpleCounter] Add SimpleCounter",
+      "code": "SA",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "name": "COUNTER_UPDATE",
+      "wireAction": "[SimpleCounter] Update SimpleCounter",
+      "code": "SU",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 21
+        }
+      ]
+    },
+    {
+      "name": "COUNTER_UPSERT",
+      "wireAction": "[SimpleCounter] Upsert SimpleCounter",
+      "code": "SUS",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 35
+        }
+      ]
+    },
+    {
+      "name": "COUNTER_DELETE",
+      "wireAction": "[SimpleCounter] Delete SimpleCounter",
+      "code": "SD",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 40
+        }
+      ]
+    },
+    {
+      "name": "COUNTER_DELETE_MULTIPLE",
+      "wireAction": "[SimpleCounter] Delete multiple SimpleCounters",
+      "code": "SDM",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 53
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 420
+        }
+      ]
+    },
+    {
+      "name": "COUNTER_UPDATE_ALL",
+      "wireAction": "[SimpleCounter] Update all SimpleCounters",
+      "code": "SUA",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 67
+        }
+      ]
+    },
+    {
+      "name": "COUNTER_SET_TODAY",
+      "wireAction": "[SimpleCounter] Set SimpleCounter Counter Today",
+      "code": "ST",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 81
+        },
+        {
+          "path": "src/app/op-log/sync/superseded-operation-resolver.service.ts",
+          "line": 636
+        }
+      ]
+    },
+    {
+      "name": "COUNTER_INCREASE_TODAY",
+      "wireAction": "[SimpleCounter] Increase SimpleCounter Counter Today",
+      "code": "SI",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 109
+        }
+      ]
+    },
+    {
+      "name": "COUNTER_DECREASE_TODAY",
+      "wireAction": "[SimpleCounter] Decrease SimpleCounter Counter Today",
+      "code": "SX",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 116
+        }
+      ]
+    },
+    {
+      "name": "COUNTER_TOGGLE",
+      "wireAction": "[SimpleCounter] Toggle SimpleCounter Counter",
+      "code": "SG",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 122
+        }
+      ]
+    },
+    {
+      "name": "COUNTER_TURN_OFF_ALL",
+      "wireAction": "[SimpleCounter] Turn off all simple counters",
+      "code": "SO",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 128
+        }
+      ]
+    },
+    {
+      "name": "COUNTER_SET_OFF",
+      "wireAction": "[SimpleCounter] Set SimpleCounter Counter Off",
+      "code": "SF",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 133
+        }
+      ]
+    },
+    {
+      "name": "COUNTER_SET_ON",
+      "wireAction": "[SimpleCounter] Set SimpleCounter Counter On",
+      "code": "SN",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 139
+        }
+      ]
+    },
+    {
+      "name": "COUNTER_SET_FOR_DATE",
+      "wireAction": "[Simple Counter] Set SimpleCounter Counter For Date",
+      "code": "SFD",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 94
+        },
+        {
+          "path": "src/app/op-log/sync/superseded-operation-resolver.service.ts",
+          "line": 637
+        }
+      ]
+    },
+    {
+      "name": "COUNTER_SYNC_TIME",
+      "wireAction": "[SimpleCounter] Sync counter time",
+      "code": "SC",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 169
+        }
+      ]
+    },
+    {
+      "name": "COUNTER_UPDATE_ORDER",
+      "wireAction": "[SimpleCounter] Update SimpleCounter Order",
+      "code": "SM",
+      "sources": [
+        {
+          "path": "src/app/features/simple-counter/store/simple-counter.actions.ts",
+          "line": 151
+        }
+      ]
+    },
+    {
+      "name": "TASK_UPDATE_MULTIPLE_SIMPLE",
+      "wireAction": "[Task] Update multiple Tasks (simple)",
+      "code": "TU",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/store/task.actions.ts",
+          "line": 28
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 817
+        }
+      ]
+    },
+    {
+      "name": "TASK_ADD_SUB",
+      "wireAction": "[Task] Add SubTask",
+      "code": "TA",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/store/task.actions.ts",
+          "line": 150
+        }
+      ]
+    },
+    {
+      "name": "TASK_MOVE_SUB",
+      "wireAction": "[Task] Move sub task",
+      "code": "TMS",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/store/task.actions.ts",
+          "line": 67
+        }
+      ]
+    },
+    {
+      "name": "TASK_MOVE_UP",
+      "wireAction": "[Task] Move up",
+      "code": "TMU",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/store/task.actions.ts",
+          "line": 85
+        }
+      ]
+    },
+    {
+      "name": "TASK_MOVE_DOWN",
+      "wireAction": "[Task] Move down",
+      "code": "TMD",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/store/task.actions.ts",
+          "line": 98
+        }
+      ]
+    },
+    {
+      "name": "TASK_MOVE_TOP",
+      "wireAction": "[Task] Move to top",
+      "code": "TMT",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/store/task.actions.ts",
+          "line": 111
+        }
+      ]
+    },
+    {
+      "name": "TASK_MOVE_BOTTOM",
+      "wireAction": "[Task] Move to bottom",
+      "code": "TMB",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/store/task.actions.ts",
+          "line": 124
+        }
+      ]
+    },
+    {
+      "name": "TASK_REMOVE_TIME_SPENT",
+      "wireAction": "[Task] Remove time spent",
+      "code": "TR",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/store/task.actions.ts",
+          "line": 137
+        }
+      ]
+    },
+    {
+      "name": "TASK_ROUND_TIME_SPENT",
+      "wireAction": "[Task] RoundTimeSpentForDay",
+      "code": "TRD",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/store/task.actions.ts",
+          "line": 165
+        },
+        {
+          "path": "src/app/op-log/sync/conflict-resolution.service.ts",
+          "line": 349
+        }
+      ]
+    },
+    {
+      "name": "TASK_ADD_TAGS_SHORT_SYNTAX",
+      "wireAction": "[Task] Add new tags from short syntax",
+      "code": "TGS",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/store/task.actions.ts",
+          "line": 185
+        }
+      ]
+    },
+    {
+      "name": "PLUGIN_UPSERT_USER_DATA",
+      "wireAction": "[Plugin] Upsert User Data",
+      "code": "UU",
+      "sources": [
+        {
+          "path": "src/app/plugins/store/plugin.actions.ts",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "name": "PLUGIN_DELETE_USER_DATA",
+      "wireAction": "[Plugin] Delete User Data",
+      "code": "UD",
+      "sources": [
+        {
+          "path": "src/app/plugins/store/plugin.actions.ts",
+          "line": 21
+        }
+      ]
+    },
+    {
+      "name": "PLUGIN_UPSERT_METADATA",
+      "wireAction": "[Plugin] Upsert Metadata",
+      "code": "UM",
+      "sources": [
+        {
+          "path": "src/app/plugins/store/plugin.actions.ts",
+          "line": 35
+        }
+      ]
+    },
+    {
+      "name": "PLUGIN_DELETE_METADATA",
+      "wireAction": "[Plugin] Delete Metadata",
+      "code": "UDM",
+      "sources": [
+        {
+          "path": "src/app/plugins/store/plugin.actions.ts",
+          "line": 48
+        }
+      ]
+    },
+    {
+      "name": "WORK_CONTEXT_MOVE_UP",
+      "wireAction": "[WorkContextMeta] Move Task Up in Today",
+      "code": "WMU",
+      "sources": [
+        {
+          "path": "src/app/features/work-context/store/work-context-meta.actions.ts",
+          "line": 35
+        }
+      ]
+    },
+    {
+      "name": "WORK_CONTEXT_MOVE_DOWN",
+      "wireAction": "[WorkContextMeta] Move Task Down in Today",
+      "code": "WMD",
+      "sources": [
+        {
+          "path": "src/app/features/work-context/store/work-context-meta.actions.ts",
+          "line": 54
+        }
+      ]
+    },
+    {
+      "name": "WORK_CONTEXT_MOVE_TOP",
+      "wireAction": "[WorkContextMeta] Move Task To Top in Today",
+      "code": "WMT",
+      "sources": [
+        {
+          "path": "src/app/features/work-context/store/work-context-meta.actions.ts",
+          "line": 73
+        }
+      ]
+    },
+    {
+      "name": "WORK_CONTEXT_MOVE_BOTTOM",
+      "wireAction": "[WorkContextMeta] Move Task To Bottom in Today",
+      "code": "WMB",
+      "sources": [
+        {
+          "path": "src/app/features/work-context/store/work-context-meta.actions.ts",
+          "line": 92
+        }
+      ]
+    },
+    {
+      "name": "WORK_CONTEXT_MOVE",
+      "wireAction": "[WorkContextMeta] Move Task in Today",
+      "code": "WM",
+      "sources": [
+        {
+          "path": "src/app/features/work-context/store/work-context-meta.actions.ts",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "name": "ATTACHMENT_ADD",
+      "wireAction": "[TaskAttachment] Add TaskAttachment",
+      "code": "XA",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/task-attachment/task-attachment.actions.ts",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "name": "ATTACHMENT_UPDATE",
+      "wireAction": "[TaskAttachment] Update TaskAttachment",
+      "code": "XU",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/task-attachment/task-attachment.actions.ts",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "name": "ATTACHMENT_DELETE",
+      "wireAction": "[TaskAttachment] Delete TaskAttachment",
+      "code": "XD",
+      "sources": [
+        {
+          "path": "src/app/features/tasks/task-attachment/task-attachment.actions.ts",
+          "line": 35
+        }
+      ]
+    },
+    {
+      "name": "LOAD_ALL_DATA",
+      "wireAction": "[SP_ALL] Load(import) all data",
+      "code": "YL",
+      "sources": [
+        {
+          "path": "src/app/root-store/meta/load-all-data.action.ts",
+          "line": 5
+        },
+        {
+          "path": "src/app/op-log/backup/backup.service.ts",
+          "line": 447
+        },
+        {
+          "path": "src/app/op-log/clean-slate/clean-slate.service.ts",
+          "line": 124
+        },
+        {
+          "path": "src/app/op-log/sync/server-migration.service.ts",
+          "line": 345
+        }
+      ]
+    },
+    {
+      "name": "LOAD_BACKUP_DATA",
+      "wireAction": "[SP_ALL] Load(import) backup file",
+      "code": "YB",
+      "sources": []
+    },
+    {
+      "name": "MIGRATION_GENESIS_IMPORT",
+      "wireAction": "[Migration] Genesis Import",
+      "code": "YM",
+      "sources": [
+        {
+          "path": "src/app/op-log/persistence/operation-log-migration.service.ts",
+          "line": 360
+        }
+      ]
+    },
+    {
+      "name": "RECOVERY_DATA_IMPORT",
+      "wireAction": "[Recovery] Data Recovery Import",
+      "code": "YR",
+      "sources": [
+        {
+          "path": "src/app/op-log/persistence/operation-log-recovery.service.ts",
+          "line": 140
+        }
+      ]
+    },
+    {
+      "name": "REPAIR_AUTO",
+      "wireAction": "[Repair] Auto Repair",
+      "code": "ZR",
+      "sources": [
+        {
+          "path": "src/app/op-log/validation/repair-operation.service.ts",
+          "line": 214
+        }
+      ]
+    }
+  ]
+}
